@@ -1,0 +1,2498 @@
+﻿<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Conecta Seguro | Educación en Ciberseguridad</title>
+
+<style>
+
+/* =====================================================
+   CONFIGURACIÓN GENERAL
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#070b14;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* Fondo tecnológico */
+
+body::before{
+    content:"";
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:
+    radial-gradient(circle at 15% 20%, #063b50 0%, transparent 30%),
+    radial-gradient(circle at 85% 80%, #152b58 0%, transparent 30%);
+    z-index:-2;
+}
+
+/* =====================================================
+   BARRA DE NAVEGACIÓN
+===================================================== */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:78px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 7%;
+
+    background:rgba(7,11,20,.88);
+    backdrop-filter:blur(15px);
+
+    border-bottom:1px solid rgba(54,197,240,.25);
+
+    z-index:1000;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:bold;
+    letter-spacing:.5px;
+}
+
+.logo span{
+    color:#36c5f0;
+}
+
+nav{
+    display:flex;
+    gap:25px;
+}
+
+nav a{
+    color:#dce7f2;
+    text-decoration:none;
+    font-size:14px;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#36c5f0;
+}
+
+/* =====================================================
+   INICIO
+===================================================== */
+
+.inicio{
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+
+    padding:130px 8% 70px;
+
+    position:relative;
+
+    background:
+    linear-gradient(
+        90deg,
+        rgba(7,11,20,.98),
+        rgba(7,11,20,.72),
+        rgba(7,11,20,.35)
+    ),
+    url("imagenes/inicio.jpg");
+
+    background-size:cover;
+    background-position:center;
+}
+
+.inicio-contenido{
+    max-width:780px;
+}
+
+.etiqueta{
+    display:inline-block;
+
+    padding:9px 17px;
+
+    border:1px solid #36c5f0;
+    border-radius:30px;
+
+    color:#36c5f0;
+
+    margin-bottom:22px;
+
+    font-size:13px;
+
+    letter-spacing:1px;
+}
+
+.inicio h1{
+    font-size:64px;
+    line-height:1.05;
+
+    margin-bottom:25px;
+}
+
+.inicio h1 span{
+    color:#36c5f0;
+}
+
+.inicio p{
+    font-size:19px;
+
+    line-height:1.8;
+
+    color:#c4cfdb;
+
+    margin-bottom:35px;
+
+    max-width:700px;
+}
+
+.boton{
+    display:inline-block;
+
+    padding:15px 25px;
+
+    border-radius:8px;
+
+    background:#36c5f0;
+
+    color:#071019;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    margin-right:10px;
+
+    transition:.3s;
+}
+
+.boton:hover{
+    transform:translateY(-4px);
+
+    box-shadow:0 10px 35px rgba(54,197,240,.35);
+}
+
+.boton-secundario{
+    background:transparent;
+
+    color:white;
+
+    border:1px solid #36c5f0;
+}
+
+/* =====================================================
+   ESTADÍSTICAS
+===================================================== */
+
+.estadisticas{
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:20px;
+
+    padding:35px 8%;
+
+    background:#0b111e;
+}
+
+.estadistica{
+    padding:25px;
+
+    text-align:center;
+
+    border:1px solid #1b2d42;
+
+    border-radius:14px;
+
+    background:#0e1726;
+
+    transition:.3s;
+}
+
+.estadistica:hover{
+    transform:translateY(-5px);
+
+    border-color:#36c5f0;
+}
+
+.estadistica h2{
+    color:#36c5f0;
+
+    font-size:30px;
+
+    margin-bottom:8px;
+}
+
+.estadistica p{
+    color:#aeb9c6;
+}
+
+/* =====================================================
+   SECCIONES
+===================================================== */
+
+section{
+    scroll-margin-top:90px;
+}
+
+.seccion{
+    padding:100px 8%;
+}
+
+.titulo{
+    text-align:center;
+
+    max-width:800px;
+
+    margin:auto;
+
+    margin-bottom:60px;
+}
+
+.titulo h2{
+    font-size:40px;
+
+    margin-bottom:15px;
+}
+
+.titulo p{
+    color:#9ba8b8;
+
+    line-height:1.7;
+}
+
+/* =====================================================
+   INTRODUCCIÓN
+===================================================== */
+
+.introduccion{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:50px;
+
+    align-items:center;
+}
+
+.introduccion img{
+    width:100%;
+
+    height:350px;
+
+    object-fit:cover;
+
+    border-radius:18px;
+
+    border:1px solid #263b52;
+}
+
+.texto-intro h3{
+    font-size:28px;
+
+    color:#36c5f0;
+
+    margin-bottom:20px;
+}
+
+.texto-intro p{
+    color:#b6c1cd;
+
+    line-height:1.8;
+
+    margin-bottom:18px;
+}
+
+.punto{
+    padding:14px;
+
+    margin:10px 0;
+
+    background:#101d2d;
+
+    border-left:4px solid #36c5f0;
+
+    border-radius:5px;
+}
+
+/* =====================================================
+   AMENAZAS
+===================================================== */
+
+.amenazas{
+    background:#09111e;
+}
+
+.grid-amenazas{
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:22px;
+}
+
+.amenaza{
+    padding:28px;
+
+    border-radius:16px;
+
+    background:#0e1928;
+
+    border:1px solid #1d3045;
+
+    transition:.4s;
+
+    cursor:pointer;
+}
+
+.amenaza:hover{
+    transform:translateY(-8px);
+
+    border-color:#36c5f0;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.3);
+}
+
+.amenaza .icono{
+    font-size:40px;
+
+    margin-bottom:18px;
+}
+
+.amenaza h3{
+    color:#36c5f0;
+
+    margin-bottom:12px;
+
+    font-size:20px;
+}
+
+.amenaza p{
+    color:#aab6c4;
+
+    line-height:1.6;
+
+    font-size:14px;
+}
+
+.leer{
+    display:inline-block;
+
+    margin-top:15px;
+
+    color:#36c5f0;
+
+    font-size:13px;
+
+    font-weight:bold;
+}
+
+/* =====================================================
+   TABLA DE COMPARACIÓN
+===================================================== */
+
+.comparacion{
+    margin-top:55px;
+
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+
+    border-collapse:collapse;
+
+    background:#0d1725;
+
+    border-radius:12px;
+
+    overflow:hidden;
+}
+
+th,td{
+    padding:17px;
+
+    text-align:left;
+
+    border-bottom:1px solid #223448;
+}
+
+th{
+    color:#36c5f0;
+
+    background:#111f31;
+}
+
+td{
+    color:#bdc8d4;
+}
+
+/* =====================================================
+   CONSEJOS
+===================================================== */
+
+.consejos{
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+
+    max-width:1000px;
+
+    margin:auto;
+}
+
+.consejo{
+    display:flex;
+
+    gap:20px;
+
+    padding:22px;
+
+    background:#0d1725;
+
+    border:1px solid #1d3045;
+
+    border-radius:14px;
+
+    transition:.3s;
+}
+
+.consejo:hover{
+    border-color:#36c5f0;
+
+    transform:translateX(5px);
+}
+
+.numero{
+    min-width:45px;
+
+    height:45px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:50%;
+
+    background:#36c5f0;
+
+    color:#071019;
+
+    font-weight:bold;
+}
+
+.consejo h3{
+    margin-bottom:8px;
+
+    color:#e8f1f8;
+}
+
+.consejo p{
+    color:#9eacbb;
+
+    line-height:1.6;
+
+    font-size:14px;
+}
+
+/* =====================================================
+   SI FUI VÍCTIMA
+===================================================== */
+
+.victima{
+    background:
+    linear-gradient(
+        rgba(8,15,27,.95),
+        rgba(8,15,27,.95)
+    ),
+    url("imagenes/seguridad.jpg");
+
+    background-size:cover;
+}
+
+.pasos{
+    max-width:850px;
+
+    margin:auto;
+}
+
+.paso{
+    display:flex;
+
+    align-items:center;
+
+    gap:25px;
+
+    padding:20px;
+
+    margin-bottom:15px;
+
+    background:rgba(13,23,37,.9);
+
+    border:1px solid #21374e;
+
+    border-radius:12px;
+}
+
+.paso-numero{
+    font-size:25px;
+
+    color:#36c5f0;
+
+    font-weight:bold;
+}
+
+.paso h3{
+    margin-bottom:5px;
+}
+
+.paso p{
+    color:#a7b3c0;
+
+    line-height:1.5;
+}
+
+/* =====================================================
+   EVALUACIÓN
+===================================================== */
+
+.evaluacion{
+    background:#08111e;
+}
+
+.simulador{
+    max-width:850px;
+
+    margin:auto;
+
+    padding:40px;
+
+    background:#0d1725;
+
+    border:1px solid #22384e;
+
+    border-radius:20px;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.35);
+}
+
+.info-test{
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-bottom:15px;
+
+    color:#9caebe;
+
+    font-size:14px;
+}
+
+.barra{
+    width:100%;
+
+    height:8px;
+
+    background:#182638;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    margin-bottom:35px;
+}
+
+.progreso{
+    height:100%;
+
+    width:0%;
+
+    background:#36c5f0;
+
+    transition:.4s;
+}
+
+#pregunta{
+    font-size:22px;
+
+    line-height:1.5;
+
+    margin-bottom:25px;
+}
+
+.opciones button{
+    display:block;
+
+    width:100%;
+
+    padding:16px;
+
+    margin:12px 0;
+
+    border:1px solid #294057;
+
+    background:#111d2c;
+
+    color:white;
+
+    border-radius:9px;
+
+    text-align:left;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    font-size:15px;
+}
+
+.opciones button:hover{
+    border-color:#36c5f0;
+
+    background:#14283d;
+}
+
+.opciones button.correcta{
+    border-color:#35d07f;
+
+    background:#103d2a;
+}
+
+.opciones button.incorrecta{
+    border-color:#ff5c6c;
+
+    background:#401b24;
+}
+
+#resultado{
+    text-align:center;
+
+    margin-top:25px;
+
+    font-size:19px;
+
+    font-weight:bold;
+}
+
+#siguiente{
+    display:none;
+
+    margin-top:25px;
+
+    padding:13px 25px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#36c5f0;
+
+    cursor:pointer;
+
+    font-weight:bold;
+}
+
+/* =====================================================
+   RESULTADO
+===================================================== */
+
+.resultado-final{
+    display:none;
+
+    text-align:center;
+
+    padding:35px;
+
+    margin-top:30px;
+
+    background:#101f31;
+
+    border-radius:16px;
+
+    border:1px solid #2a425b;
+}
+
+.circulo{
+    width:150px;
+
+    height:150px;
+
+    margin:0 auto 25px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border:8px solid #36c5f0;
+}
+
+.circulo strong{
+    font-size:40px;
+
+    color:#36c5f0;
+}
+
+.circulo span{
+    font-size:13px;
+
+    color:#9eabb9;
+}
+
+.resultado-final h3{
+    font-size:28px;
+
+    margin-bottom:10px;
+}
+
+.resultado-final p{
+    color:#aab7c5;
+
+    line-height:1.6;
+
+    margin-bottom:25px;
+}
+
+.boton-repetir{
+    border:none;
+
+    background:#36c5f0;
+
+    padding:14px 25px;
+
+    border-radius:8px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+/* =====================================================
+   VENTANAS
+===================================================== */
+
+.ventana{
+    display:none;
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,.8);
+
+    backdrop-filter:blur(8px);
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:20px;
+
+    z-index:3000;
+}
+
+.contenido-ventana{
+    position:relative;
+
+    width:850px;
+
+    max-width:95%;
+
+    max-height:90vh;
+
+    overflow:auto;
+
+    background:#0d1725;
+
+    border:1px solid #36c5f0;
+
+    border-radius:20px;
+
+    padding:35px;
+
+    animation:aparecer .3s ease;
+}
+
+@keyframes aparecer{
+
+    from{
+        transform:scale(.8);
+
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1);
+
+        opacity:1;
+    }
+
+}
+
+.cerrar{
+    position:absolute;
+
+    right:20px;
+
+    top:12px;
+
+    font-size:32px;
+
+    cursor:pointer;
+}
+
+.cerrar:hover{
+    color:#36c5f0;
+}
+
+.contenido-ventana h2{
+    color:#36c5f0;
+
+    margin-bottom:20px;
+}
+
+.contenido-ventana p{
+    color:#b8c3cf;
+
+    line-height:1.7;
+
+    margin-bottom:15px;
+}
+
+.lista{
+    margin-top:20px;
+}
+
+.lista div{
+    padding:15px;
+
+    margin:10px 0;
+
+    background:#111f31;
+
+    border-left:4px solid #36c5f0;
+
+    border-radius:5px;
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+    padding:50px 8%;
+
+    text-align:center;
+
+    background:#050810;
+
+    border-top:1px solid #182638;
+}
+
+footer h2{
+    color:#36c5f0;
+
+    margin-bottom:12px;
+}
+
+footer p{
+    color:#788698;
+
+    margin:5px;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:950px){
+
+    .grid-amenazas{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .tarjetas{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .introduccion{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:700px){
+
+    header{
+        height:auto;
+
+        padding:15px;
+
+        flex-direction:column;
+
+        gap:15px;
+    }
+
+    nav{
+        gap:12px;
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+    }
+
+    .inicio{
+        padding-top:170px;
+    }
+
+    .inicio h1{
+        font-size:42px;
+    }
+
+    .estadisticas{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .grid-amenazas{
+        grid-template-columns:1fr;
+    }
+
+    .consejos{
+        grid-template-columns:1fr;
+    }
+
+    .simulador{
+        padding:25px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- =====================================================
+     MENÚ
+===================================================== -->
+
+<header>
+
+<div class="logo">
+🌐 Conecta <span>Seguro</span>
+</div>
+
+<nav>
+
+<a href="#inicio">Inicio</a>
+
+<a href="#aprende">Aprende</a>
+
+<a href="#amenazas">Amenazas</a>
+
+<a href="#consejos">Consejos</a>
+
+<a href="#evaluacion">Evaluación</a>
+
+</nav>
+
+</header>
+
+<!-- =====================================================
+     INICIO
+===================================================== -->
+
+<section class="inicio" id="inicio">
+
+<div class="inicio-contenido">
+
+<div class="etiqueta">
+🎓 PLATAFORMA EDUCATIVA DE CIBERSEGURIDAD
+</div>
+
+<h1>
+Aprende a navegar
+<span>seguro</span>
+</h1>
+
+<p>
+Internet hace parte de nuestra vida diaria.
+Aprende a reconocer las amenazas digitales,
+proteger tu información y tomar mejores
+decisiones cuando estés conectado.
+</p>
+
+<a href="#aprende" class="boton">
+Comenzar a aprender
+</a>
+
+<a href="#evaluacion" class="boton boton-secundario">
+Evaluar mis conocimientos
+</a>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     ESTADÍSTICAS
+===================================================== -->
+
+<div class="estadisticas">
+
+<div class="estadistica">
+
+<h2>01</h2>
+
+<p>Aprende</p>
+
+</div>
+
+<div class="estadistica">
+
+<h2>02</h2>
+
+<p>Identifica</p>
+
+</div>
+
+<div class="estadistica">
+
+<h2>03</h2>
+
+<p>Previene</p>
+
+</div>
+
+<div class="estadistica">
+
+<h2>04</h2>
+
+<p>Protege</p>
+
+</div>
+
+</div>
+
+<!-- =====================================================
+     ¿QUÉ ES CIBERSEGURIDAD?
+===================================================== -->
+
+<section class="seccion" id="aprende">
+
+<div class="titulo">
+
+<h2>🔐 ¿Qué es la ciberseguridad?</h2>
+
+<p>
+Comprende los conceptos básicos antes de enfrentarte
+a las amenazas del mundo digital.
+</p>
+
+</div>
+
+<div class="introduccion">
+
+<img src="imagenes/seguridad.jpg" alt="Ciberseguridad">
+
+<div class="texto-intro">
+
+<h3>La seguridad también depende de ti</h3>
+
+<p>
+La ciberseguridad comprende las prácticas y medidas
+utilizadas para proteger dispositivos, sistemas,
+redes y datos frente a accesos no autorizados,
+fraudes, ataques y otras amenazas digitales.
+</p>
+
+<p>
+No se trata solamente de tener programas de seguridad.
+También es importante aprender a reconocer situaciones
+sospechosas y actuar correctamente.
+</p>
+
+<div class="punto">
+🧠 <b>Conocimiento:</b> aprende a reconocer los riesgos.
+</div>
+
+<div class="punto">
+👀 <b>Atención:</b> analiza antes de hacer clic.
+</div>
+
+<div class="punto">
+🛡️ <b>Prevención:</b> protege tus cuentas y dispositivos.
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     AMENAZAS
+===================================================== -->
+
+<section class="seccion amenazas" id="amenazas">
+
+<div class="titulo">
+
+<h2>⚠️ Conoce las amenazas</h2>
+
+<p>
+Internet ofrece muchas oportunidades, pero también
+existen diferentes formas de engañar, atacar o robar
+información.
+</p>
+
+</div>
+
+<div class="grid-amenazas">
+
+<div class="amenaza"
+onclick="abrirVentana('phishing')">
+
+<div class="icono">🎣</div>
+
+<h3>Phishing</h3>
+
+<p>
+Mensajes o páginas falsas que intentan engañarte
+para obtener información.
+</p>
+
+<span class="leer">+ Aprender</span>
+
+</div>
+
+<div class="amenaza"
+onclick="abrirVentana('malware')">
+
+<div class="icono">🦠</div>
+
+<h3>Malware</h3>
+
+<p>
+Programas maliciosos diseñados para afectar
+dispositivos o información.
+</p>
+
+<span class="leer">+ Aprender</span>
+
+</div>
+
+<div class="amenaza"
+onclick="abrirVentana('ingenieria')">
+
+<div class="icono">🎭</div>
+
+<h3>Ingeniería social</h3>
+
+<p>
+Manipulación de personas para conseguir información
+o lograr determinadas acciones.
+</p>
+
+<span class="leer">+ Aprender</span>
+
+</div>
+
+<div class="amenaza"
+onclick="abrirVentana('identidad')">
+
+<div class="icono">👤</div>
+
+<h3>Suplantación</h3>
+
+<p>
+Cuando alguien intenta hacerse pasar por otra persona
+para conseguir un beneficio.
+</p>
+
+<span class="leer">+ Aprender</span>
+
+</div>
+
+<div class="amenaza"
+onclick="abrirVentana('contrasenas')">
+
+<div class="icono">🔓</div>
+
+<h3>Robo de contraseñas</h3>
+
+<p>
+Ataques destinados a obtener las claves utilizadas
+para acceder a las cuentas.
+</p>
+
+<span class="leer">+ Aprender</span>
+
+</div>
+
+<div class="amenaza"
+onclick="abrirVentana('fraudes')">
+
+<div class="icono">💳</div>
+
+<h3>Fraudes digitales</h3>
+
+<p>
+Engaños realizados mediante Internet para obtener
+dinero o información.
+</p>
+
+<span class="leer">+ Aprender</span>
+
+</div>
+
+<div class="amenaza"
+onclick="abrirVentana('redes')">
+
+<div class="icono">📱</div>
+
+<h3>Redes sociales</h3>
+
+<p>
+Exposición de información personal, perfiles falsos
+y enlaces peligrosos.
+</p>
+
+<span class="leer">+ Aprender</span>
+
+</div>
+
+<div class="amenaza"
+onclick="abrirVentana('wifi')">
+
+<div class="icono">📡</div>
+
+<h3>Riesgos en Wi-Fi</h3>
+
+<p>
+Las redes desconocidas o inseguras pueden representar
+riesgos para la privacidad.
+</p>
+
+<span class="leer">+ Aprender</span>
+
+</div>
+
+<div class="amenaza"
+onclick="abrirVentana('privacidad')">
+
+<div class="icono">🕵️</div>
+
+<h3>Privacidad</h3>
+
+<p>
+Compartir demasiada información puede facilitar
+ataques y suplantaciones.
+</p>
+
+<span class="leer">+ Aprender</span>
+
+</div>
+
+</div>
+
+<!-- COMPARACIÓN -->
+
+<div class="comparacion">
+
+<table>
+
+<tr>
+
+<th>Amenaza</th>
+
+<th>¿Cómo puede aparecer?</th>
+
+<th>¿Qué hacer?</th>
+
+</tr>
+
+<tr>
+
+<td>Phishing</td>
+
+<td>Correo o mensaje falso</td>
+
+<td>Verificar antes de hacer clic</td>
+
+</tr>
+
+<tr>
+
+<td>Malware</td>
+
+<td>Archivo o programa sospechoso</td>
+
+<td>No descargar archivos desconocidos</td>
+
+</tr>
+
+<tr>
+
+<td>Ingeniería social</td>
+
+<td>Persona que intenta manipularte</td>
+
+<td>No entregar información</td>
+
+</tr>
+
+<tr>
+
+<td>Suplantación</td>
+
+<td>Perfil o identidad falsa</td>
+
+<td>Verificar quién está detrás</td>
+
+</tr>
+
+<tr>
+
+<td>Fraude</td>
+
+<td>Oferta o mensaje engañoso</td>
+
+<td>Comprobar la información</td>
+
+</tr>
+
+</table>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     CONSEJOS
+===================================================== -->
+
+<section class="seccion" id="consejos">
+
+<div class="titulo">
+
+<h2>🛡️ Aprende a protegerte</h2>
+
+<p>
+Pequeñas acciones pueden ayudarte a reducir
+muchos riesgos digitales.
+</p>
+
+</div>
+
+<div class="consejos">
+
+<div class="consejo">
+
+<div class="numero">01</div>
+
+<div>
+
+<h3>Utiliza contraseñas fuertes</h3>
+
+<p>
+Evita utilizar datos fáciles de adivinar y procura
+no utilizar la misma contraseña en todas tus cuentas.
+</p>
+
+</div>
+
+</div>
+
+<div class="consejo">
+
+<div class="numero">02</div>
+
+<div>
+
+<h3>Activa la autenticación de dos factores</h3>
+
+<p>
+Agrega una capa adicional de seguridad a tus cuentas
+cuando el servicio lo permita.
+</p>
+
+</div>
+
+</div>
+
+<div class="consejo">
+
+<div class="numero">03</div>
+
+<div>
+
+<h3>Piensa antes de hacer clic</h3>
+
+<p>
+Analiza enlaces, mensajes y archivos antes de abrirlos.
+</p>
+
+</div>
+
+</div>
+
+<div class="consejo">
+
+<div class="numero">04</div>
+
+<div>
+
+<h3>Protege tu información</h3>
+
+<p>
+Evita publicar datos personales que puedan ser
+utilizados para suplantarte.
+</p>
+
+</div>
+
+</div>
+
+<div class="consejo">
+
+<div class="numero">05</div>
+
+<div>
+
+<h3>Mantén tus dispositivos actualizados</h3>
+
+<p>
+Las actualizaciones pueden corregir problemas
+de seguridad.
+</p>
+
+</div>
+
+</div>
+
+<div class="consejo">
+
+<div class="numero">06</div>
+
+<div>
+
+<h3>Verifica antes de confiar</h3>
+
+<p>
+Si recibes una solicitud extraña, confirma la
+información mediante un canal oficial.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     ¿QUÉ HACER SI FUI VÍCTIMA?
+===================================================== -->
+
+<section class="seccion victima">
+
+<div class="titulo">
+
+<h2>🚨 ¿Qué hago si fui víctima?</h2>
+
+<p>
+Si cometiste un error o sospechas que tus datos
+fueron comprometidos, actuar rápidamente puede ayudar.
+</p>
+
+</div>
+
+<div class="pasos">
+
+<div class="paso">
+
+<div class="paso-numero">01</div>
+
+<div>
+
+<h3>Mantén la calma</h3>
+
+<p>
+No continúes interactuando con el mensaje,
+enlace o persona sospechosa.
+</p>
+
+</div>
+
+</div>
+
+<div class="paso">
+
+<div class="paso-numero">02</div>
+
+<div>
+
+<h3>Cambia tus contraseñas</h3>
+
+<p>
+Si entregaste una contraseña, cámbiala inmediatamente,
+especialmente si la utilizas en otros servicios.
+</p>
+
+</div>
+
+</div>
+
+<div class="paso">
+
+<div class="paso-numero">03</div>
+
+<div>
+
+<h3>Activa medidas de seguridad</h3>
+
+<p>
+Activa autenticación de dos factores y revisa
+la actividad de tus cuentas.
+</p>
+
+</div>
+
+</div>
+
+<div class="paso">
+
+<div class="paso-numero">04</div>
+
+<div>
+
+<h3>Reporta el incidente</h3>
+
+<p>
+Utiliza los canales oficiales de la plataforma
+o entidad involucrada.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     EVALUACIÓN
+===================================================== -->
+
+<section class="seccion evaluacion" id="evaluacion">
+
+<div class="titulo">
+
+<h2>🧪 Comprueba lo que aprendiste</h2>
+
+<p>
+Responde cinco preguntas y descubre qué tan preparado
+estás para identificar amenazas digitales.
+</p>
+
+</div>
+
+<div class="simulador">
+
+<div class="info-test">
+
+<span id="numeroPregunta">
+Pregunta 1 de 5
+</span>
+
+<span id="puntos">
+Puntos: 0
+</span>
+
+</div>
+
+<div class="barra">
+
+<div class="progreso" id="progreso"></div>
+
+</div>
+
+<div id="pregunta"></div>
+
+<div class="opciones" id="opciones"></div>
+
+<button id="siguiente"
+onclick="siguientePregunta()">
+
+Siguiente pregunta →
+
+</button>
+
+<div id="resultado"></div>
+
+<!-- RESULTADO FINAL -->
+
+<div class="resultado-final" id="resultadoFinal">
+
+<div class="circulo">
+
+<strong id="porcentaje">0%</strong>
+
+<span>APRENDIZAJE</span>
+
+</div>
+
+<h3 id="nivel"></h3>
+
+<p id="mensajeFinal"></p>
+
+<button class="boton-repetir"
+onclick="reiniciarEvaluacion()">
+
+🔄 Realizar otra evaluación
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     VENTANAS EDUCATIVAS
+===================================================== -->
+
+<div class="ventana" id="phishing">
+
+<div class="contenido-ventana">
+
+<span class="cerrar"
+onclick="cerrarVentana('phishing')">
+× </span>
+
+<h2>🎣 Phishing</h2>
+
+<p>
+El phishing busca engañar a una persona mediante
+mensajes, correos, sitios web u otros medios que
+aparentan ser legítimos.
+</p>
+
+<div class="lista">
+
+<div>⚠️ Desconfía de mensajes que exigen actuar inmediatamente.</div>
+
+<div>🔗 Revisa cuidadosamente los enlaces.</div>
+
+<div>🔐 Nunca compartas contraseñas mediante mensajes.</div>
+
+<div>🌐 Accede directamente al sitio oficial cuando tengas dudas.</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="ventana" id="malware">
+
+<div class="contenido-ventana">
+
+<span class="cerrar"
+onclick="cerrarVentana('malware')">
+× </span>
+
+<h2>🦠 Malware</h2>
+
+<p>
+Malware es un término utilizado para describir software
+malicioso que puede afectar dispositivos o información.
+</p>
+
+<div class="lista">
+
+<div>🦠 Virus</div>
+
+<div>🔒 Ransomware</div>
+
+<div>👁️ Spyware</div>
+
+<div>🤖 Troyanos</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="ventana" id="ingenieria">
+
+<div class="contenido-ventana">
+
+<span class="cerrar"
+onclick="cerrarVentana('ingenieria')">
+× </span>
+
+<h2>🎭 Ingeniería social</h2>
+
+<p>
+Consiste en utilizar técnicas de manipulación para
+conseguir que una persona revele información o
+realice una acción.
+</p>
+
+<div class="lista">
+
+<div>📞 Llamadas falsas</div>
+
+<div>📧 Correos engañosos</div>
+
+<div>👤 Suplantación de personas conocidas</div>
+
+<div>🎁 Ofertas falsas</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="ventana" id="identidad">
+
+<div class="contenido-ventana">
+
+<span class="cerrar"
+onclick="cerrarVentana('identidad')">
+× </span>
+
+<h2>👤 Suplantación de identidad</h2>
+
+<p>
+Ocurre cuando alguien utiliza información o perfiles
+falsos para hacerse pasar por otra persona.
+</p>
+
+<div class="lista">
+
+<div>🔎 Verifica perfiles sospechosos.</div>
+
+<div>📱 No publiques información personal innecesaria.</div>
+
+<div>🔐 Protege tus cuentas.</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="ventana" id="contrasenas">
+
+<div class="contenido-ventana">
+
+<span class="cerrar"
+onclick="cerrarVentana('contrasenas')">
+× </span>
+
+<h2>🔓 Robo de contraseñas</h2>
+
+<p>
+Las contraseñas pueden ser obtenidas mediante engaños,
+filtraciones o diferentes técnicas de ataque.
+</p>
+
+<div class="lista">
+
+<div>🔑 Utiliza contraseñas diferentes.</div>
+
+<div>🔐 Utiliza autenticación de dos factores.</div>
+
+<div>🚫 No compartas tus claves.</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="ventana" id="fraudes">
+
+<div class="contenido-ventana">
+
+<span class="cerrar"
+onclick="cerrarVentana('fraudes')">
+× </span>
+
+<h2>💳 Fraudes digitales</h2>
+
+<p>
+Son engaños que buscan obtener dinero, información
+o algún beneficio utilizando medios digitales.
+</p>
+
+<div class="lista">
+
+<div>🎁 Premios que nunca solicitaste.</div>
+
+<div>💰 Inversiones con promesas irreales.</div>
+
+<div>🛒 Tiendas o promociones sospechosas.</div>
+
+<div>📱 Solicitudes inesperadas de dinero.</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="ventana" id="redes">
+
+<div class="contenido-ventana">
+
+<span class="cerrar"
+onclick="cerrarVentana('redes')">
+× </span>
+
+<h2>📱 Seguridad en redes sociales</h2>
+
+<p>
+Las redes sociales pueden exponer información personal
+que puede ser utilizada para realizar ataques.
+</p>
+
+<div class="lista">
+
+<div>🔒 Revisa la privacidad de tus perfiles.</div>
+
+<div>👤 Desconfía de perfiles desconocidos.</div>
+
+<div>📸 Evita compartir información sensible.</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="ventana" id="wifi">
+
+<div class="contenido-ventana">
+
+<span class="cerrar"
+onclick="cerrarVentana('wifi')">
+× </span>
+
+<h2>📡 Riesgos en Wi-Fi</h2>
+
+<p>
+Las redes públicas o desconocidas requieren especial
+precaución al momento de utilizarlas.
+</p>
+
+<div class="lista">
+
+<div>🔐 Evita realizar operaciones sensibles en redes desconocidas.</div>
+
+<div>📱 Mantén actualizado tu dispositivo.</div>
+
+<div>🌐 Verifica el nombre de la red antes de conectarte.</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="ventana" id="privacidad">
+
+<div class="contenido-ventana">
+
+<span class="cerrar"
+onclick="cerrarVentana('privacidad')">
+× </span>
+
+<h2>🕵️ Privacidad digital</h2>
+
+<p>
+La información que compartimos en Internet puede
+revelar datos sobre nuestra vida, ubicación o identidad.
+</p>
+
+<div class="lista">
+
+<div>📍 Evita publicar tu ubicación en tiempo real.</div>
+
+<div>📷 Revisa qué información aparece en tus publicaciones.</div>
+
+<div>🔐 Configura correctamente la privacidad.</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<h2>🌐 Conecta Seguro</h2>
+
+<p>
+Aprende. Identifica. Protégete.
+</p>
+
+<p>
+Plataforma educativa de ciberseguridad
+</p>
+
+<p>
+Proyecto académico de Ingeniería de Sistemas · 2026
+</p>
+
+</footer>
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   VENTANAS
+===================================================== */
+
+function abrirVentana(id){
+
+document.getElementById(id).style.display="flex";
+
+}
+
+
+function cerrarVentana(id){
+
+document.getElementById(id).style.display="none";
+
+}
+
+
+window.onclick=function(event){
+
+if(event.target.classList.contains("ventana")){
+
+event.target.style.display="none";
+
+}
+
+}
+
+
+/* =====================================================
+   BANCO DE PREGUNTAS
+===================================================== */
+
+const bancoPreguntas=[
+
+{
+pregunta:"Recibes un correo que afirma que tu cuenta será cerrada en 10 minutos si no haces clic en un enlace. ¿Qué deberías hacer?",
+
+opciones:[
+"Hacer clic inmediatamente.",
+"Responder enviando mi contraseña.",
+"Verificar la información desde el sitio oficial.",
+"Reenviar el correo a todos mis contactos."
+],
+
+correcta:2
+},
+
+
+{
+pregunta:"¿Cuál es una característica frecuente de un intento de phishing?",
+
+opciones:[
+"Un mensaje que genera urgencia y solicita información.",
+"Una actualización realizada desde la aplicación oficial.",
+"Una contraseña diferente para cada cuenta.",
+"Una página que abriste escribiendo directamente su dirección."
+],
+
+correcta:0
+},
+
+
+{
+pregunta:"¿Cuál es una buena práctica para proteger tus cuentas?",
+
+opciones:[
+"Usar la misma contraseña en todos los servicios.",
+"Compartir la contraseña con personas de confianza.",
+"Utilizar autenticación de dos factores.",
+"Escribir la contraseña en publicaciones."
+],
+
+correcta:2
+},
+
+
+{
+pregunta:"Una persona desconocida te escribe diciendo que es un empleado de un banco y necesita tus códigos de seguridad. ¿Qué haces?",
+
+opciones:[
+"Entregar los códigos.",
+"Verificar directamente con el banco.",
+"Enviar una fotografía de mi documento.",
+"Dar solamente uno de los códigos."
+],
+
+correcta:1
+},
+
+
+{
+pregunta:"¿Qué deberías hacer antes de descargar un archivo enviado por una persona desconocida?",
+
+opciones:[
+"Descargarlo para descubrir qué contiene.",
+"Compartirlo primero con amigos.",
+"Verificar su origen y evitar abrirlo si resulta sospechoso.",
+"Desactivar el antivirus."
+],
+
+correcta:2
+},
+
+
+{
+pregunta:"¿Cuál de estas situaciones podría representar ingeniería social?",
+
+opciones:[
+"Una actualización automática del sistema.",
+"Una persona que intenta convencerte de revelar información confidencial.",
+"Una contraseña almacenada en un gestor.",
+"Una página oficial."
+],
+
+correcta:1
+},
+
+
+{
+pregunta:"¿Qué información conviene evitar publicar innecesariamente en redes sociales?",
+
+opciones:[
+"Una opinión sobre una película.",
+"Información sensible como documentos, ubicación o datos personales.",
+"Una fotografía de un paisaje.",
+"El nombre de una canción."
+],
+
+correcta:1
+},
+
+
+{
+pregunta:"¿Qué es el malware?",
+
+opciones:[
+"Una herramienta para crear contraseñas.",
+"Un tipo de conexión Wi-Fi.",
+"Software diseñado para realizar acciones maliciosas.",
+"Un sistema operativo."
+],
+
+correcta:2
+},
+
+
+{
+pregunta:"Encuentras una oferta en Internet con un precio extremadamente bajo y te piden pagar inmediatamente. ¿Qué haces?",
+
+opciones:[
+"Pago rápidamente antes de que desaparezca.",
+"Verifico la tienda, la oferta y sus canales oficiales.",
+"Envío mis datos personales primero.",
+"Comparto la oferta con mis contactos."
+],
+
+correcta:1
+},
+
+
+{
+pregunta:"¿Por qué es importante mantener actualizado un dispositivo?",
+
+opciones:[
+"Porque cambia el color de la pantalla.",
+"Porque puede corregir problemas y mejorar la seguridad.",
+"Porque elimina todas las fotografías.",
+"Porque aumenta automáticamente las contraseñas."
+],
+
+correcta:1
+},
+
+
+{
+pregunta:"Si sospechas que alguien obtuvo tu contraseña, ¿qué deberías hacer primero?",
+
+opciones:[
+"Publicarla para avisar a otras personas.",
+"Cambiarla y revisar la seguridad de la cuenta.",
+"Seguir utilizándola.",
+"Compartirla con un amigo."
+],
+
+correcta:1
+},
+
+
+{
+pregunta:"¿Cuál es la mejor reacción ante un enlace sospechoso recibido por mensaje?",
+
+opciones:[
+"Abrirlo en modo incógnito.",
+"Evitar abrirlo y verificar el mensaje por otra vía.",
+"Descargar todo lo que aparezca.",
+"Responder con información personal."
+],
+
+correcta:1
+}
+
+];
+
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+let preguntasEvaluacion=[];
+
+let preguntaActual=0;
+
+let puntuacion=0;
+
+const TOTAL_PREGUNTAS=5;
+
+
+/* =====================================================
+   MEZCLAR PREGUNTAS
+===================================================== */
+
+function mezclar(array){
+
+let copia=[...array];
+
+for(let i=copia.length-1;i>0;i--){
+
+let j=Math.floor(Math.random()*(i+1));
+
+[copia[i],copia[j]]=[copia[j],copia[i]];
+
+}
+
+return copia;
+
+}
+
+
+/* =====================================================
+   NUEVA EVALUACIÓN
+===================================================== */
+
+function nuevaEvaluacion(){
+
+preguntasEvaluacion=
+
+mezclar(bancoPreguntas).slice(0,TOTAL_PREGUNTAS);
+
+preguntaActual=0;
+
+puntuacion=0;
+
+document.getElementById("resultadoFinal").style.display="none";
+
+document.getElementById("puntos").textContent="Puntos: 0";
+
+cargarPregunta();
+
+}
+
+
+/* =====================================================
+   CARGAR PREGUNTA
+===================================================== */
+
+function cargarPregunta(){
+
+const pregunta=preguntasEvaluacion[preguntaActual];
+
+document.getElementById("numeroPregunta").textContent=
+
+"Pregunta "+(preguntaActual+1)+" de "+TOTAL_PREGUNTAS;
+
+
+document.getElementById("pregunta").textContent=
+
+pregunta.pregunta;
+
+
+const opciones=document.getElementById("opciones");
+
+opciones.innerHTML="";
+
+
+pregunta.opciones.forEach(function(opcion,indice){
+
+const boton=document.createElement("button");
+
+boton.textContent=opcion;
+
+boton.onclick=function(){
+
+responder(indice);
+
+};
+
+opciones.appendChild(boton);
+
+});
+
+
+document.getElementById("resultado").textContent="";
+
+document.getElementById("siguiente").style.display="none";
+
+
+let porcentaje=
+
+(preguntaActual/TOTAL_PREGUNTAS)*100;
+
+document.getElementById("progreso").style.width=
+
+porcentaje+"%";
+
+}
+
+
+/* =====================================================
+   RESPONDER
+===================================================== */
+
+function responder(indice){
+
+const pregunta=preguntasEvaluacion[preguntaActual];
+
+const botones=
+
+document.querySelectorAll("#opciones button");
+
+
+botones.forEach(function(boton){
+
+boton.disabled=true;
+
+});
+
+
+if(indice===pregunta.correcta){
+
+puntuacion++;
+
+botones[indice].classList.add("correcta");
+
+document.getElementById("resultado").textContent=
+
+"✅ ¡Correcto! Has identificado correctamente la situación.";
+
+}else{
+
+botones[indice].classList.add("incorrecta");
+
+botones[pregunta.correcta].classList.add("correcta");
+
+document.getElementById("resultado").textContent=
+
+"❌ No es la opción más segura. La respuesta correcta ha sido marcada en verde.";
+
+}
+
+
+document.getElementById("puntos").textContent=
+
+"Puntos: "+puntuacion;
+
+
+if(preguntaActual<TOTAL_PREGUNTAS-1){
+
+document.getElementById("siguiente").style.display=
+
+"inline-block";
+
+}else{
+
+setTimeout(mostrarResultado,700);
+
+}
+
+}
+
+
+/* =====================================================
+   SIGUIENTE
+===================================================== */
+
+function siguientePregunta(){
+
+preguntaActual++;
+
+cargarPregunta();
+
+}
+
+
+/* =====================================================
+   RESULTADO
+===================================================== */
+
+function mostrarResultado(){
+
+document.getElementById("progreso").style.width="100%";
+
+document.getElementById("pregunta").textContent="Evaluación terminada 🎉";
+
+document.getElementById("opciones").innerHTML="";
+
+document.getElementById("siguiente").style.display="none";
+
+document.getElementById("resultado").textContent="";
+
+
+let porcentaje=
+
+Math.round((puntuacion/TOTAL_PREGUNTAS)*100);
+
+
+document.getElementById("porcentaje").textContent=
+
+porcentaje+"%";
+
+
+let nivel="";
+
+let mensaje="";
+
+
+if(porcentaje<40){
+
+nivel="🔴 Nivel inicial";
+
+mensaje=
+"Has dado el primer paso. Te recomendamos explorar nuevamente los módulos sobre amenazas y consejos de seguridad antes de realizar otra evaluación.";
+
+}
+
+else if(porcentaje<80){
+
+nivel="🟠 Nivel intermedio";
+
+mensaje=
+"Tienes una buena base de conocimientos. Sigue practicando para aprender a identificar situaciones de riesgo con mayor facilidad.";
+
+}
+
+else{
+
+nivel="🟢 Nivel avanzado";
+
+mensaje=
+"¡Excelente! Demuestras un buen conocimiento de las principales amenazas y prácticas de seguridad digital.";
+
+}
+
+
+document.getElementById("nivel").textContent=nivel;
+
+document.getElementById("mensajeFinal").textContent=mensaje;
+
+document.getElementById("resultadoFinal").style.display="block";
+
+}
+
+
+/* =====================================================
+   REPETIR EVALUACIÓN
+===================================================== */
+
+function reiniciarEvaluacion(){
+
+document.getElementById("resultadoFinal").style.display="none";
+
+nuevaEvaluacion();
+
+document.getElementById("evaluacion").scrollIntoView({
+
+behavior:"smooth"
+
+});
+
+}
+
+
+/* =====================================================
+   INICIAR EVALUACIÓN
+===================================================== */
+
+nuevaEvaluacion();
+
+
+</script>
+
+</body>
+
+</html>
