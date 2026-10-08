@@ -1,2498 +1,731 @@
-﻿<!DOCTYPE html>
-
-<html lang="es">
-
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Conecta Seguro | Educación en Ciberseguridad</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>🌐 Conecta Seguro | Aprende ciberseguridad</title>
+<meta name="description" content="Guía amigable para que cualquier persona aprenda a protegerse en internet.">
 <style>
-
-/* =====================================================
-   CONFIGURACIÓN GENERAL
-===================================================== */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:Arial, Helvetica, sans-serif;
-    background:#070b14;
-    color:white;
-    overflow-x:hidden;
-}
-
-/* Fondo tecnológico */
-
-body::before{
-    content:"";
-    position:fixed;
-    width:100%;
-    height:100%;
-    background:
-    radial-gradient(circle at 15% 20%, #063b50 0%, transparent 30%),
-    radial-gradient(circle at 85% 80%, #152b58 0%, transparent 30%);
-    z-index:-2;
-}
-
-/* =====================================================
-   BARRA DE NAVEGACIÓN
-===================================================== */
-
-header{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:78px;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    padding:0 7%;
-
-    background:rgba(7,11,20,.88);
-    backdrop-filter:blur(15px);
-
-    border-bottom:1px solid rgba(54,197,240,.25);
-
-    z-index:1000;
-}
-
-.logo{
-    font-size:25px;
-    font-weight:bold;
-    letter-spacing:.5px;
-}
-
-.logo span{
-    color:#36c5f0;
-}
-
-nav{
-    display:flex;
-    gap:25px;
-}
-
-nav a{
-    color:#dce7f2;
-    text-decoration:none;
-    font-size:14px;
-    transition:.3s;
-}
-
-nav a:hover{
-    color:#36c5f0;
-}
-
-/* =====================================================
-   INICIO
-===================================================== */
-
-.inicio{
-    min-height:100vh;
-
-    display:flex;
-    align-items:center;
-
-    padding:130px 8% 70px;
-
-    position:relative;
-
-    background:
-    linear-gradient(
-        90deg,
-        rgba(7,11,20,.98),
-        rgba(7,11,20,.72),
-        rgba(7,11,20,.35)
-    ),
-    url("imagenes/inicio.jpg");
-
-    background-size:cover;
-    background-position:center;
-}
-
-.inicio-contenido{
-    max-width:780px;
-}
-
-.etiqueta{
-    display:inline-block;
-
-    padding:9px 17px;
-
-    border:1px solid #36c5f0;
-    border-radius:30px;
-
-    color:#36c5f0;
-
-    margin-bottom:22px;
-
-    font-size:13px;
-
-    letter-spacing:1px;
-}
-
-.inicio h1{
-    font-size:64px;
-    line-height:1.05;
-
-    margin-bottom:25px;
-}
-
-.inicio h1 span{
-    color:#36c5f0;
-}
-
-.inicio p{
-    font-size:19px;
-
-    line-height:1.8;
-
-    color:#c4cfdb;
-
-    margin-bottom:35px;
-
-    max-width:700px;
-}
-
-.boton{
-    display:inline-block;
-
-    padding:15px 25px;
-
-    border-radius:8px;
-
-    background:#36c5f0;
-
-    color:#071019;
-
-    text-decoration:none;
-
-    font-weight:bold;
-
-    margin-right:10px;
-
-    transition:.3s;
-}
-
-.boton:hover{
-    transform:translateY(-4px);
-
-    box-shadow:0 10px 35px rgba(54,197,240,.35);
-}
-
-.boton-secundario{
-    background:transparent;
-
-    color:white;
-
-    border:1px solid #36c5f0;
-}
-
-/* =====================================================
-   ESTADÍSTICAS
-===================================================== */
-
-.estadisticas{
-    display:grid;
-
-    grid-template-columns:repeat(4,1fr);
-
-    gap:20px;
-
-    padding:35px 8%;
-
-    background:#0b111e;
-}
-
-.estadistica{
-    padding:25px;
-
-    text-align:center;
-
-    border:1px solid #1b2d42;
-
-    border-radius:14px;
-
-    background:#0e1726;
-
-    transition:.3s;
-}
-
-.estadistica:hover{
-    transform:translateY(-5px);
-
-    border-color:#36c5f0;
-}
-
-.estadistica h2{
-    color:#36c5f0;
-
-    font-size:30px;
-
-    margin-bottom:8px;
-}
-
-.estadistica p{
-    color:#aeb9c6;
-}
-
-/* =====================================================
-   SECCIONES
-===================================================== */
-
-section{
-    scroll-margin-top:90px;
-}
-
-.seccion{
-    padding:100px 8%;
-}
-
-.titulo{
-    text-align:center;
-
-    max-width:800px;
-
-    margin:auto;
-
-    margin-bottom:60px;
-}
-
-.titulo h2{
-    font-size:40px;
-
-    margin-bottom:15px;
-}
-
-.titulo p{
-    color:#9ba8b8;
-
-    line-height:1.7;
-}
-
-/* =====================================================
-   INTRODUCCIÓN
-===================================================== */
-
-.introduccion{
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:50px;
-
-    align-items:center;
-}
-
-.introduccion img{
-    width:100%;
-
-    height:350px;
-
-    object-fit:cover;
-
-    border-radius:18px;
-
-    border:1px solid #263b52;
-}
-
-.texto-intro h3{
-    font-size:28px;
-
-    color:#36c5f0;
-
-    margin-bottom:20px;
-}
-
-.texto-intro p{
-    color:#b6c1cd;
-
-    line-height:1.8;
-
-    margin-bottom:18px;
-}
-
-.punto{
-    padding:14px;
-
-    margin:10px 0;
-
-    background:#101d2d;
-
-    border-left:4px solid #36c5f0;
-
-    border-radius:5px;
-}
-
-/* =====================================================
-   AMENAZAS
-===================================================== */
-
-.amenazas{
-    background:#09111e;
-}
-
-.grid-amenazas{
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:22px;
-}
-
-.amenaza{
-    padding:28px;
-
-    border-radius:16px;
-
-    background:#0e1928;
-
-    border:1px solid #1d3045;
-
-    transition:.4s;
-
-    cursor:pointer;
-}
-
-.amenaza:hover{
-    transform:translateY(-8px);
-
-    border-color:#36c5f0;
-
-    box-shadow:0 15px 40px rgba(0,0,0,.3);
-}
-
-.amenaza .icono{
-    font-size:40px;
-
-    margin-bottom:18px;
-}
-
-.amenaza h3{
-    color:#36c5f0;
-
-    margin-bottom:12px;
-
-    font-size:20px;
-}
-
-.amenaza p{
-    color:#aab6c4;
-
-    line-height:1.6;
-
-    font-size:14px;
-}
-
-.leer{
-    display:inline-block;
-
-    margin-top:15px;
-
-    color:#36c5f0;
-
-    font-size:13px;
-
-    font-weight:bold;
-}
-
-/* =====================================================
-   TABLA DE COMPARACIÓN
-===================================================== */
-
-.comparacion{
-    margin-top:55px;
-
-    overflow-x:auto;
-}
-
-table{
-    width:100%;
-
-    border-collapse:collapse;
-
-    background:#0d1725;
-
-    border-radius:12px;
-
-    overflow:hidden;
-}
-
-th,td{
-    padding:17px;
-
-    text-align:left;
-
-    border-bottom:1px solid #223448;
-}
-
-th{
-    color:#36c5f0;
-
-    background:#111f31;
-}
-
-td{
-    color:#bdc8d4;
-}
-
-/* =====================================================
-   CONSEJOS
-===================================================== */
-
-.consejos{
-    display:grid;
-
-    grid-template-columns:repeat(2,1fr);
-
-    gap:20px;
-
-    max-width:1000px;
-
-    margin:auto;
-}
-
-.consejo{
-    display:flex;
-
-    gap:20px;
-
-    padding:22px;
-
-    background:#0d1725;
-
-    border:1px solid #1d3045;
-
-    border-radius:14px;
-
-    transition:.3s;
-}
-
-.consejo:hover{
-    border-color:#36c5f0;
-
-    transform:translateX(5px);
-}
-
-.numero{
-    min-width:45px;
-
-    height:45px;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    border-radius:50%;
-
-    background:#36c5f0;
-
-    color:#071019;
-
-    font-weight:bold;
-}
-
-.consejo h3{
-    margin-bottom:8px;
-
-    color:#e8f1f8;
-}
-
-.consejo p{
-    color:#9eacbb;
-
-    line-height:1.6;
-
-    font-size:14px;
-}
-
-/* =====================================================
-   SI FUI VÍCTIMA
-===================================================== */
-
-.victima{
-    background:
-    linear-gradient(
-        rgba(8,15,27,.95),
-        rgba(8,15,27,.95)
-    ),
-    url("imagenes/seguridad.jpg");
-
-    background-size:cover;
-}
-
-.pasos{
-    max-width:850px;
-
-    margin:auto;
-}
-
-.paso{
-    display:flex;
-
-    align-items:center;
-
-    gap:25px;
-
-    padding:20px;
-
-    margin-bottom:15px;
-
-    background:rgba(13,23,37,.9);
-
-    border:1px solid #21374e;
-
-    border-radius:12px;
-}
-
-.paso-numero{
-    font-size:25px;
-
-    color:#36c5f0;
-
-    font-weight:bold;
-}
-
-.paso h3{
-    margin-bottom:5px;
-}
-
-.paso p{
-    color:#a7b3c0;
-
-    line-height:1.5;
-}
-
-/* =====================================================
-   EVALUACIÓN
-===================================================== */
-
-.evaluacion{
-    background:#08111e;
-}
-
-.simulador{
-    max-width:850px;
-
-    margin:auto;
-
-    padding:40px;
-
-    background:#0d1725;
-
-    border:1px solid #22384e;
-
-    border-radius:20px;
-
-    box-shadow:0 20px 60px rgba(0,0,0,.35);
-}
-
-.info-test{
-    display:flex;
-
-    justify-content:space-between;
-
-    margin-bottom:15px;
-
-    color:#9caebe;
-
-    font-size:14px;
-}
-
-.barra{
-    width:100%;
-
-    height:8px;
-
-    background:#182638;
-
-    border-radius:20px;
-
-    overflow:hidden;
-
-    margin-bottom:35px;
-}
-
-.progreso{
-    height:100%;
-
-    width:0%;
-
-    background:#36c5f0;
-
-    transition:.4s;
-}
-
-#pregunta{
-    font-size:22px;
-
-    line-height:1.5;
-
-    margin-bottom:25px;
-}
-
-.opciones button{
-    display:block;
-
-    width:100%;
-
-    padding:16px;
-
-    margin:12px 0;
-
-    border:1px solid #294057;
-
-    background:#111d2c;
-
-    color:white;
-
-    border-radius:9px;
-
-    text-align:left;
-
-    cursor:pointer;
-
-    transition:.3s;
-
-    font-size:15px;
-}
-
-.opciones button:hover{
-    border-color:#36c5f0;
-
-    background:#14283d;
-}
-
-.opciones button.correcta{
-    border-color:#35d07f;
-
-    background:#103d2a;
-}
-
-.opciones button.incorrecta{
-    border-color:#ff5c6c;
-
-    background:#401b24;
-}
-
-#resultado{
-    text-align:center;
-
-    margin-top:25px;
-
-    font-size:19px;
-
-    font-weight:bold;
-}
-
-#siguiente{
-    display:none;
-
-    margin-top:25px;
-
-    padding:13px 25px;
-
-    border:none;
-
-    border-radius:8px;
-
-    background:#36c5f0;
-
-    cursor:pointer;
-
-    font-weight:bold;
-}
-
-/* =====================================================
-   RESULTADO
-===================================================== */
-
-.resultado-final{
-    display:none;
-
-    text-align:center;
-
-    padding:35px;
-
-    margin-top:30px;
-
-    background:#101f31;
-
-    border-radius:16px;
-
-    border:1px solid #2a425b;
-}
-
-.circulo{
-    width:150px;
-
-    height:150px;
-
-    margin:0 auto 25px;
-
-    border-radius:50%;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    border:8px solid #36c5f0;
-}
-
-.circulo strong{
-    font-size:40px;
-
-    color:#36c5f0;
-}
-
-.circulo span{
-    font-size:13px;
-
-    color:#9eabb9;
-}
-
-.resultado-final h3{
-    font-size:28px;
-
-    margin-bottom:10px;
-}
-
-.resultado-final p{
-    color:#aab7c5;
-
-    line-height:1.6;
-
-    margin-bottom:25px;
-}
-
-.boton-repetir{
-    border:none;
-
-    background:#36c5f0;
-
-    padding:14px 25px;
-
-    border-radius:8px;
-
-    font-weight:bold;
-
-    cursor:pointer;
-}
-
-/* =====================================================
-   VENTANAS
-===================================================== */
-
-.ventana{
-    display:none;
-
-    position:fixed;
-
-    top:0;
-    left:0;
-
-    width:100%;
-    height:100%;
-
-    background:rgba(0,0,0,.8);
-
-    backdrop-filter:blur(8px);
-
-    justify-content:center;
-
-    align-items:center;
-
-    padding:20px;
-
-    z-index:3000;
-}
-
-.contenido-ventana{
-    position:relative;
-
-    width:850px;
-
-    max-width:95%;
-
-    max-height:90vh;
-
-    overflow:auto;
-
-    background:#0d1725;
-
-    border:1px solid #36c5f0;
-
-    border-radius:20px;
-
-    padding:35px;
-
-    animation:aparecer .3s ease;
-}
-
-@keyframes aparecer{
-
-    from{
-        transform:scale(.8);
-
-        opacity:0;
-    }
-
-    to{
-        transform:scale(1);
-
-        opacity:1;
-    }
-
-}
-
-.cerrar{
-    position:absolute;
-
-    right:20px;
-
-    top:12px;
-
-    font-size:32px;
-
-    cursor:pointer;
-}
-
-.cerrar:hover{
-    color:#36c5f0;
-}
-
-.contenido-ventana h2{
-    color:#36c5f0;
-
-    margin-bottom:20px;
-}
-
-.contenido-ventana p{
-    color:#b8c3cf;
-
-    line-height:1.7;
-
-    margin-bottom:15px;
-}
-
-.lista{
-    margin-top:20px;
-}
-
-.lista div{
-    padding:15px;
-
-    margin:10px 0;
-
-    background:#111f31;
-
-    border-left:4px solid #36c5f0;
-
-    border-radius:5px;
-}
-
-/* =====================================================
-   FOOTER
-===================================================== */
-
-footer{
-    padding:50px 8%;
-
-    text-align:center;
-
-    background:#050810;
-
-    border-top:1px solid #182638;
-}
-
-footer h2{
-    color:#36c5f0;
-
-    margin-bottom:12px;
-}
-
-footer p{
-    color:#788698;
-
-    margin:5px;
-}
-
-/* =====================================================
-   RESPONSIVE
-===================================================== */
-
-@media(max-width:950px){
-
-    .grid-amenazas{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .tarjetas{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .introduccion{
-        grid-template-columns:1fr;
-    }
-
-}
-
+/* ===== 1. COLORES (cambia aquí la paleta) ===== */
+:root{ /* tema oscuro con cian: es el que se ve por defecto */
+  --fondo:#070d17; --tarjeta:#0e1a2a; --texto:#e6eef8; --suave:#8f9bb0;
+  --primario:#2ec5f4; --primario-texto:#04101a; --acento:#f2b134;
+  --ok:#4ade9a; --mal:#ff7a6b; --borde:#1c2d42; --sombra:0 4px 24px rgba(0,0,0,.35);
+  --tam:1.125rem; /* tamaño base del texto (lo cambian los botones A- A+) */
+}
+[data-theme="light"]{ /* tema claro (botón 🌓) */
+  --fondo:#f4f8fa; --tarjeta:#ffffff; --texto:#13283b; --suave:#44596b;
+  --primario:#0b6b66; --primario-texto:#ffffff; --acento:#f2b134;
+  --ok:#17794a; --mal:#b3361f; --borde:#cfdbe3; --sombra:0 2px 10px rgba(19,40,59,.08);
+}
+/* ===== 2. BASE ===== */
+*{box-sizing:border-box}
+html{font-size:100%;scroll-behavior:smooth;scroll-padding-top:5.5rem}
+body{margin:0;background:var(--fondo);color:var(--texto);font:var(--tam)/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.2;margin:0 0 .6em}
+h1{font-size:clamp(2.3rem,6vw,4.6rem)} h2{font-size:clamp(1.6rem,4vw,2.3rem)} h3{font-size:1.3rem}
+p{margin:0 0 1em;max-width:70ch}
+a{color:var(--primario)} 
+:focus-visible{outline:3px solid var(--acento);outline-offset:3px;border-radius:4px}
+.contenedor{width:min(1600px,94%);margin-inline:auto}
+section{padding:3.5rem 0}
+.intro{color:var(--suave);font-size:1.1em}
+.salto{position:absolute;left:-999px;background:var(--acento);color:#000;padding:.6rem 1rem;z-index:99}
+.salto:focus{left:1rem;top:1rem}
+.rejilla{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.tarjeta{background:var(--tarjeta);border:1px solid var(--borde);border-radius:14px;padding:1.4rem;box-shadow:var(--sombra)}
+.icono{font-size:2rem;display:block;margin-bottom:.4rem}
+button,.boton{font:inherit;cursor:pointer;border-radius:10px;border:2px solid var(--primario);background:var(--primario);color:var(--primario-texto);padding:.6rem 1.1rem;text-decoration:none;display:inline-block}
+button.sec{background:transparent;color:var(--primario)}
+button:hover,.boton:hover{filter:brightness(1.1)}
+/* ===== 3. ENCABEZADO FIJO ===== */
+header{position:fixed;inset:0 0 auto 0;z-index:50;background:var(--tarjeta);border-bottom:1px solid var(--borde)}
+.barra{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem 1rem;padding:.5rem 0}
+.logo{font:700 1.3rem Georgia,serif;color:var(--texto);text-decoration:none;margin-right:auto}
+nav ul{display:flex;gap:.25rem;list-style:none;margin:0;padding:0;overflow-x:auto}
+nav a{display:block;padding:.4rem .7rem;border-radius:8px;color:var(--texto);text-decoration:none;font-size:.9rem;white-space:nowrap}
+nav a:hover{background:var(--borde)}
+.ajustes{display:flex;gap:.3rem}
+.ajustes button{padding:.25rem .6rem;font-size:.9rem}
+@media(max-width:820px){nav{order:3;width:100%}}
+/* ===== 4. BIENVENIDA ===== */
+.hero{padding-top:9rem;background:linear-gradient(180deg,var(--tarjeta),var(--fondo))}
+.hero .rejilla{grid-template-columns:repeat(auto-fit,minmax(290px,1fr));align-items:center;gap:2rem}
+.medidor{height:14px;border-radius:7px;background:var(--borde);overflow:hidden;margin:.7rem 0}
+.medidor span{display:block;height:100%;width:0;background:var(--mal);transition:width .4s,background .4s}
+input[type=text]{width:100%;font:inherit;padding:.7rem;border-radius:10px;border:2px solid var(--borde);background:var(--fondo);color:var(--texto)}
+/* ===== 5. AMENAZAS ===== */
+.amenaza p{margin-bottom:.7em}
+.amenaza b{color:var(--primario)}
+/* ===== 6. CONSEJOS ===== */
+.consejos{list-style:none;padding:0;display:grid;gap:.7rem}
+.consejos label{display:flex;gap:.8rem;align-items:flex-start;background:var(--tarjeta);border:1px solid var(--borde);border-radius:12px;padding:.9rem 1rem;cursor:pointer}
+.consejos input{width:1.4rem;height:1.4rem;margin-top:.2rem;accent-color:var(--primario);flex:none}
+/* ===== 7. MITOS ===== */
+details{background:var(--tarjeta);border:1px solid var(--borde);border-radius:12px;padding:1rem 1.2rem;margin-bottom:.8rem}
+summary{cursor:pointer;font-weight:600}
+details[open]{border-color:var(--primario)}
+.veredicto{font-weight:700}
+/* ===== 8. QUIZ ===== */
+.quiz{max-width:960px}
+.opciones{display:grid;gap:.6rem;margin:1rem 0}
+.opciones button{text-align:left;background:var(--tarjeta);color:var(--texto);border-color:var(--borde)}
+.opciones button.bien{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 18%,var(--tarjeta))}
+.opciones button.mal{border-color:var(--mal);background:color-mix(in srgb,var(--mal) 18%,var(--tarjeta))}
+.retro{min-height:3.2em;font-weight:500}
+progress{width:100%;accent-color:var(--primario)}
+/* ===== 9. GLOSARIO Y PIE ===== */
+dt{font-weight:700;color:var(--primario)} dd{margin:0 0 1rem}
+footer{background:#03060d;border-top:1px solid #16243a;padding:3rem 0;text-align:center}
+.pie-titulo{margin:0 auto .6rem;font:700 1.5rem system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:#2ec5f4}
+.pie-txt{margin:0 auto;color:#8f9bb0;font-size:.95rem;line-height:1.6}
+/* ===== 9b. CONSEJOS, JUEGOS Y RESULTADO DEL QUIZ ===== */
+nav{min-width:0}
+.consejos{grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));align-items:start}
+.cons-panel{display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap;margin-bottom:1.5rem}
+.cons-panel>div{flex:1;min-width:230px}
+.escudo{width:110px}
+.tip{margin:.4rem .3rem 0;font-size:.95em;color:var(--suave)}
+.juegos{grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))}
+.msj{background:var(--fondo);border:1px solid var(--borde);border-radius:12px;padding:1rem;margin:.8rem 0}
+.msj small{color:var(--suave)}
+.opciones2{display:flex;gap:.6rem;flex-wrap:wrap}
+.mazo{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin:.8rem 0}
+.mazo.virus{grid-template-columns:repeat(3,1fr)}
+.carta{aspect-ratio:1;font-size:clamp(.7rem,2.6vw,1rem);padding:.2rem;background:var(--fondo);color:var(--texto);border-color:var(--borde);display:grid;place-items:center;overflow-wrap:anywhere}
+.virus .carta{font-size:2rem}
+.carta.abierta{border-color:var(--primario);background:var(--tarjeta)}
+.resultado{display:flex;gap:1.5rem;align-items:center;flex-wrap:wrap}
+.anillo{width:150px;color:var(--texto)}
+.medalla{font-size:3rem;margin:0}
+.repaso{list-style:none;padding:0;display:grid;gap:.6rem}
+.repaso li{display:flex;gap:.6rem;padding:.7rem;border-radius:10px;border:2px solid var(--borde)}
+.repaso li.ok{border-color:var(--ok)} .repaso li.no{border-color:var(--mal)}
+.boton.sec{background:transparent;color:var(--primario)}
+/* ===== 9c. JUEGOS NUEVOS (3 columnas en computador) ===== */
+@media(min-width:1000px){.juegos{grid-template-columns:repeat(3,1fr)}}
+.reglas{list-style:none;padding:0;margin:1rem 0;display:grid;gap:.3rem;font-size:.95em;color:var(--suave)}
+.reglas li::before{content:"⬜ "}
+.reglas li.ok{color:var(--ok)} .reglas li.ok::before{content:"✅ "}
+.palabra{font:700 1.8rem ui-monospace,Consolas,monospace;letter-spacing:.1em;margin:.3rem 0;overflow-wrap:anywhere}
+.teclado{display:grid;grid-template-columns:repeat(9,1fr);gap:.3rem;margin:.6rem 0}
+.tecla{padding:.35rem 0;font-size:.9rem;text-align:center}
+.tecla:disabled{opacity:.35;cursor:default}
+.url{font-family:ui-monospace,Consolas,monospace;font-size:.9rem;overflow-wrap:anywhere}
+/* ===== 9d. QUÉ ES, AMENAZAS EXTRA, PANELES DEL QUIZ ===== */
+.grande{font-size:1.25em;color:var(--texto)}
+.dos{grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:2rem;align-items:start}
+.protege{list-style:none;padding:0;margin:0;display:grid;gap:.8rem}
+.protege li{display:flex;gap:.8rem;align-items:center} .protege li>span:first-child{font-size:1.8rem}
+.amenazas-rej{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.quiz-zona{display:grid;grid-template-columns:minmax(220px,1fr) minmax(0,2.2fr) minmax(240px,1fr);gap:1.25rem;align-items:start}
+.lateral h3{font-size:1.15rem}
+.insignias{list-style:none;padding:0;margin:0;display:grid;gap:.5rem}
+.insignias li{display:flex;gap:.6rem;align-items:center;padding:.5rem .6rem;border:1px dashed var(--borde);border-radius:10px;opacity:.5;filter:grayscale(1);transition:.4s}
+.insignias li.ganada{opacity:1;filter:none;border:1px solid var(--primario)}
+.med{font-size:1.6rem}
+.sr{position:absolute;left:-999px}
+@media(max-width:1000px){.quiz-zona{grid-template-columns:1fr}.quiz{order:-1}}
+/* ===== 10. IMÁGENES, VIDEO Y PANTALLA COMPLETA EN CELULAR ===== */
+html,body{overflow-x:hidden}
+.hero{min-height:100svh;display:flex;align-items:center}
+.banner{display:block;width:calc(100% + 2.8rem);margin:-1.4rem -1.4rem 1rem;border-radius:14px 14px 0 0}
+.video{position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:var(--fondo);border:2px dashed var(--borde)}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video .vacio{position:absolute;inset:0;display:grid;place-content:center;text-align:center;padding:1rem;gap:.4rem}
 @media(max-width:700px){
-
-    header{
-        height:auto;
-
-        padding:15px;
-
-        flex-direction:column;
-
-        gap:15px;
-    }
-
-    nav{
-        gap:12px;
-
-        flex-wrap:wrap;
-
-        justify-content:center;
-    }
-
-    .inicio{
-        padding-top:170px;
-    }
-
-    .inicio h1{
-        font-size:42px;
-    }
-
-    .estadisticas{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .grid-amenazas{
-        grid-template-columns:1fr;
-    }
-
-    .consejos{
-        grid-template-columns:1fr;
-    }
-
-    .simulador{
-        padding:25px;
-    }
-
+ .contenedor{width:100%;padding-inline:max(1.1rem,env(safe-area-inset-left))}
+ section{padding:2.5rem 0}
+ .hero{padding-top:8.5rem;padding-bottom:2rem}
+ .rejilla{grid-template-columns:1fr}
+ .video{border-radius:0;margin-inline:-1.1rem}
 }
-
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+@keyframes latido{50%{transform:scale(1.06)}}
+.candado{animation:flota 5s ease-in-out infinite;max-width:min(430px,90%);width:100%;margin:auto;display:block}
+@keyframes flota{50%{transform:translateY(-12px)}}
 </style>
-
 </head>
-
 <body>
-
-<!-- =====================================================
-     MENÚ
-===================================================== -->
+<a class="salto" href="#contenido">Saltar al contenido</a>
 
 <header>
-
-<div class="logo">
-🌐 Conecta <span>Seguro</span>
-</div>
-
-<nav>
-
-<a href="#inicio">Inicio</a>
-
-<a href="#aprende">Aprende</a>
-
-<a href="#amenazas">Amenazas</a>
-
-<a href="#consejos">Consejos</a>
-
-<a href="#evaluacion">Evaluación</a>
-
-</nav>
-
+ <div class="contenedor barra">
+  <a class="logo" href="#inicio">🌐 Conecta Seguro</a>
+  <div class="ajustes" role="group" aria-label="Ajustes de lectura">
+   <button class="sec" id="menos" aria-label="Disminuir tamaño del texto">A−</button>
+   <button class="sec" id="mas" aria-label="Aumentar tamaño del texto">A+</button>
+   <button class="sec" id="tema" aria-label="Cambiar entre modo claro y oscuro">🌓</button>
+  </div>
+  <nav aria-label="Principal">
+   <ul>
+    <li><a href="#inicio">Inicio</a></li><li><a href="#que-es">¿Qué es?</a></li><li><a href="#video">Video</a></li><li><a href="#basicos">Conceptos</a></li>
+    <li><a href="#amenazas">Amenazas</a></li><li><a href="#practicas">Consejos</a></li><li><a href="#edades">Edades</a></li>
+    <li><a href="#mitos">Mitos</a></li><li><a href="#juegos">Juegos</a></li><li><a href="#quiz">Quiz</a></li><li><a href="#ayuda">Ayuda</a></li>
+    <li><a href="#glosario">Glosario</a></li><li><a href="#recursos">Recursos</a></li>
+   </ul>
+  </nav>
+ </div>
 </header>
 
-<!-- =====================================================
-     INICIO
-===================================================== -->
-
-<section class="inicio" id="inicio">
-
-<div class="inicio-contenido">
-
-<div class="etiqueta">
-🎓 PLATAFORMA EDUCATIVA DE CIBERSEGURIDAD
-</div>
-
-<h1>
-Aprende a navegar
-<span>seguro</span>
-</h1>
-
-<p>
-Internet hace parte de nuestra vida diaria.
-Aprende a reconocer las amenazas digitales,
-proteger tu información y tomar mejores
-decisiones cuando estés conectado.
-</p>
-
-<a href="#aprende" class="boton">
-Comenzar a aprender
-</a>
-
-<a href="#evaluacion" class="boton boton-secundario">
-Evaluar mis conocimientos
-</a>
-
-</div>
-
+<main id="contenido">
+<!-- ===== BIENVENIDA ===== -->
+<section class="hero" id="inicio">
+ <div class="contenedor rejilla">
+  <div>
+   <h1>🌐 Conecta Seguro</h1>
+   <p style="font:600 1.35em Georgia,serif">Protege tu vida digital, sin complicaciones</p>
+   <p class="intro">Hoy hablamos con el banco, vemos a la familia y compramos desde el celular. Así como cierras la puerta de tu casa, también conviene cerrar la puerta de tu vida en internet.</p>
+   <p>En esta página aprenderás qué son las amenazas más comunes, cómo reconocerlas y qué hacer para estar tranquilo. No necesitas saber de computadores: empezamos desde cero.</p>
+   <a class="boton" href="#que-es">Empezar a aprender</a>
+  </div>
+  <div>
+   <svg class="candado" viewBox="0 0 260 300" role="img" aria-label="Ilustración de un candado cerrado y brillante, rodeado de íconos de mensaje, llave, wifi y verificación">
+    <defs><radialGradient id="halo"><stop offset="0" stop-color="#4fd1c5" stop-opacity=".55"/><stop offset="1" stop-color="#4fd1c5" stop-opacity="0"/></radialGradient>
+    <linearGradient id="cuerpo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#14a89e"/><stop offset="1" stop-color="#0b6b66"/></linearGradient></defs>
+    <circle cx="130" cy="160" r="125" fill="url(#halo)"/>
+    <path d="M80 130V95a50 50 0 0 1 100 0v35" fill="none" stroke="#cfe3ea" stroke-width="18" stroke-linecap="round"/>
+    <rect x="52" y="125" width="156" height="130" rx="26" fill="url(#cuerpo)"/>
+    <rect x="52" y="125" width="156" height="130" rx="26" fill="none" stroke="#fff" stroke-opacity=".3" stroke-width="3"/>
+    <circle cx="130" cy="180" r="17" fill="#f2b134"/><rect x="123" y="186" width="14" height="40" rx="6" fill="#f2b134"/>
+    <g font-size="30" text-anchor="middle"><text x="30" y="70">✉️</text><text x="232" y="100">🔑</text><text x="228" y="275">✅</text><text x="28" y="255">📶</text></g>
+   </svg>
+  </div>
+ </div>
 </section>
 
-<!-- =====================================================
-     ESTADÍSTICAS
-===================================================== -->
-
-<div class="estadisticas">
-
-<div class="estadistica">
-
-<h2>01</h2>
-
-<p>Aprende</p>
-
-</div>
-
-<div class="estadistica">
-
-<h2>02</h2>
-
-<p>Identifica</p>
-
-</div>
-
-<div class="estadistica">
-
-<h2>03</h2>
-
-<p>Previene</p>
-
-</div>
-
-<div class="estadistica">
-
-<h2>04</h2>
-
-<p>Protege</p>
-
-</div>
-
-</div>
-
-<!-- =====================================================
-     ¿QUÉ ES CIBERSEGURIDAD?
-===================================================== -->
-
-<section class="seccion" id="aprende">
-
-<div class="titulo">
-
-<h2>🔐 ¿Qué es la ciberseguridad?</h2>
-
-<p>
-Comprende los conceptos básicos antes de enfrentarte
-a las amenazas del mundo digital.
-</p>
-
-</div>
-
-<div class="introduccion">
-
-<img src="imagenes/seguridad.jpg" alt="Ciberseguridad">
-
-<div class="texto-intro">
-
-<h3>La seguridad también depende de ti</h3>
-
-<p>
-La ciberseguridad comprende las prácticas y medidas
-utilizadas para proteger dispositivos, sistemas,
-redes y datos frente a accesos no autorizados,
-fraudes, ataques y otras amenazas digitales.
-</p>
-
-<p>
-No se trata solamente de tener programas de seguridad.
-También es importante aprender a reconocer situaciones
-sospechosas y actuar correctamente.
-</p>
-
-<div class="punto">
-🧠 <b>Conocimiento:</b> aprende a reconocer los riesgos.
-</div>
-
-<div class="punto">
-👀 <b>Atención:</b> analiza antes de hacer clic.
-</div>
-
-<div class="punto">
-🛡️ <b>Prevención:</b> protege tus cuentas y dispositivos.
-</div>
-
-</div>
-
-</div>
-
+<!-- ===== ¿QUÉ ES LA CIBERSEGURIDAD? ===== -->
+<section id="que-es">
+ <div class="contenedor">
+  <h2>¿Qué es la ciberseguridad?</h2>
+  <div class="rejilla dos">
+   <div>
+    <p class="grande">La ciberseguridad es el conjunto de hábitos, reglas y herramientas que usamos para proteger lo que tenemos en el mundo digital: nuestros aparatos, cuentas, datos y dinero.</p>
+    <p>Piénsalo así: en la calle usas llaves, rejas y cuidas tu cartera. En internet haces lo mismo, pero con contraseñas, actualizaciones y atención a los mensajes que recibes.</p>
+    <p><strong>¿Por qué importa?</strong> Casi todo hoy pasa por internet: el banco, el colegio, el trabajo, las fotos de la familia y las compras. Los delincuentes también están ahí, buscando descuidos.</p>
+    <p><strong>¿Es solo para expertos?</strong> No. La mayoría de los problemas se evitan con hábitos simples que cualquiera puede aprender, a cualquier edad.</p>
+   </div>
+   <div class="tarjeta"><h3>¿Qué protege?</h3>
+    <ul class="protege">
+     <li><span aria-hidden="true">📱</span><span><strong>Tus aparatos</strong><br><small>Celular, computador y tablet</small></span></li>
+     <li><span aria-hidden="true">🔐</span><span><strong>Tus cuentas</strong><br><small>Correo, redes sociales y banco</small></span></li>
+     <li><span aria-hidden="true">🪪</span><span><strong>Tu identidad</strong><br><small>Nombre, documentos y fotos</small></span></li>
+     <li><span aria-hidden="true">💳</span><span><strong>Tu dinero</strong><br><small>Tarjetas, pagos y compras</small></span></li>
+     <li><span aria-hidden="true">📸</span><span><strong>Tus recuerdos</strong><br><small>Fotos, chats y archivos</small></span></li>
+    </ul></div>
+  </div>
+  <h3 style="margin-top:2.5rem">Los 3 pilares de la seguridad</h3>
+  <div class="rejilla">
+   <article class="tarjeta" data-img="🤫|#2a5d9f|#7fb6ee|Dibujo de una cara pidiendo silencio"><h3>Confidencialidad</h3><p>Solo ve la información quien debe verla. Es como un diario con candado: tus mensajes y tus datos son tuyos.</p></article>
+   <article class="tarjeta" data-img="✅|#17794a|#7fe0a8|Dibujo de una marca de verificación"><h3>Integridad</h3><p>La información no cambia sin permiso. Si haces una transferencia de 50, nadie debe poder convertirla en 500.</p></article>
+   <article class="tarjeta" data-img="🚪|#935b12|#f2c06b|Dibujo de una puerta"><h3>Disponibilidad</h3><p>Puedes usar tus cuentas y servicios cuando los necesitas. Es como tener siempre la llave de casa y que la puerta abra.</p></article>
+  </div>
+  <h3 style="margin-top:2.5rem">¿Quiénes atacan y qué buscan?</h3>
+  <p class="intro">Se les llama ciberdelincuentes. No hace falta que sean genios: muchas veces solo esperan que alguien se descuide.</p>
+  <div class="rejilla">
+   <article class="tarjeta"><span class="icono" aria-hidden="true">💰</span><h3>Dinero</h3><p>Robar cuentas, pedir pagos falsos o vender tus datos.</p></article>
+   <article class="tarjeta"><span class="icono" aria-hidden="true">🪪</span><h3>Datos e identidad</h3><p>Usar tu nombre y tus documentos para pedir créditos o hacerse pasar por ti.</p></article>
+   <article class="tarjeta"><span class="icono" aria-hidden="true">😈</span><h3>Daño o fastidio</h3><p>Borrar archivos, bloquear aparatos o difundir mensajes falsos.</p></article>
+  </div>
+ </div>
 </section>
 
-<!-- =====================================================
-     AMENAZAS
-===================================================== -->
-
-<section class="seccion amenazas" id="amenazas">
-
-<div class="titulo">
-
-<h2>⚠️ Conoce las amenazas</h2>
-
-<p>
-Internet ofrece muchas oportunidades, pero también
-existen diferentes formas de engañar, atacar o robar
-información.
-</p>
-
-</div>
-
-<div class="grid-amenazas">
-
-<div class="amenaza"
-onclick="abrirVentana('phishing')">
-
-<div class="icono">🎣</div>
-
-<h3>Phishing</h3>
-
-<p>
-Mensajes o páginas falsas que intentan engañarte
-para obtener información.
-</p>
-
-<span class="leer">+ Aprender</span>
-
-</div>
-
-<div class="amenaza"
-onclick="abrirVentana('malware')">
-
-<div class="icono">🦠</div>
-
-<h3>Malware</h3>
-
-<p>
-Programas maliciosos diseñados para afectar
-dispositivos o información.
-</p>
-
-<span class="leer">+ Aprender</span>
-
-</div>
-
-<div class="amenaza"
-onclick="abrirVentana('ingenieria')">
-
-<div class="icono">🎭</div>
-
-<h3>Ingeniería social</h3>
-
-<p>
-Manipulación de personas para conseguir información
-o lograr determinadas acciones.
-</p>
-
-<span class="leer">+ Aprender</span>
-
-</div>
-
-<div class="amenaza"
-onclick="abrirVentana('identidad')">
-
-<div class="icono">👤</div>
-
-<h3>Suplantación</h3>
-
-<p>
-Cuando alguien intenta hacerse pasar por otra persona
-para conseguir un beneficio.
-</p>
-
-<span class="leer">+ Aprender</span>
-
-</div>
-
-<div class="amenaza"
-onclick="abrirVentana('contrasenas')">
-
-<div class="icono">🔓</div>
-
-<h3>Robo de contraseñas</h3>
-
-<p>
-Ataques destinados a obtener las claves utilizadas
-para acceder a las cuentas.
-</p>
-
-<span class="leer">+ Aprender</span>
-
-</div>
-
-<div class="amenaza"
-onclick="abrirVentana('fraudes')">
-
-<div class="icono">💳</div>
-
-<h3>Fraudes digitales</h3>
-
-<p>
-Engaños realizados mediante Internet para obtener
-dinero o información.
-</p>
-
-<span class="leer">+ Aprender</span>
-
-</div>
-
-<div class="amenaza"
-onclick="abrirVentana('redes')">
-
-<div class="icono">📱</div>
-
-<h3>Redes sociales</h3>
-
-<p>
-Exposición de información personal, perfiles falsos
-y enlaces peligrosos.
-</p>
-
-<span class="leer">+ Aprender</span>
-
-</div>
-
-<div class="amenaza"
-onclick="abrirVentana('wifi')">
-
-<div class="icono">📡</div>
-
-<h3>Riesgos en Wi-Fi</h3>
-
-<p>
-Las redes desconocidas o inseguras pueden representar
-riesgos para la privacidad.
-</p>
-
-<span class="leer">+ Aprender</span>
-
-</div>
-
-<div class="amenaza"
-onclick="abrirVentana('privacidad')">
-
-<div class="icono">🕵️</div>
-
-<h3>Privacidad</h3>
-
-<p>
-Compartir demasiada información puede facilitar
-ataques y suplantaciones.
-</p>
-
-<span class="leer">+ Aprender</span>
-
-</div>
-
-</div>
-
-<!-- COMPARACIÓN -->
-
-<div class="comparacion">
-
-<table>
-
-<tr>
-
-<th>Amenaza</th>
-
-<th>¿Cómo puede aparecer?</th>
-
-<th>¿Qué hacer?</th>
-
-</tr>
-
-<tr>
-
-<td>Phishing</td>
-
-<td>Correo o mensaje falso</td>
-
-<td>Verificar antes de hacer clic</td>
-
-</tr>
-
-<tr>
-
-<td>Malware</td>
-
-<td>Archivo o programa sospechoso</td>
-
-<td>No descargar archivos desconocidos</td>
-
-</tr>
-
-<tr>
-
-<td>Ingeniería social</td>
-
-<td>Persona que intenta manipularte</td>
-
-<td>No entregar información</td>
-
-</tr>
-
-<tr>
-
-<td>Suplantación</td>
-
-<td>Perfil o identidad falsa</td>
-
-<td>Verificar quién está detrás</td>
-
-</tr>
-
-<tr>
-
-<td>Fraude</td>
-
-<td>Oferta o mensaje engañoso</td>
-
-<td>Comprobar la información</td>
-
-</tr>
-
-</table>
-
-</div>
-
+<!-- ===== VIDEO ===== -->
+<section id="video" style="background:var(--tarjeta)">
+ <div class="contenedor">
+  <h2>Mira y aprende</h2>
+  <p class="intro">Un video corto ayuda a entender mejor todo lo anterior.</p>
+  <div class="video" id="videoCaja"></div>
+ </div>
 </section>
 
-<!-- =====================================================
-     CONSEJOS
-===================================================== -->
-
-<section class="seccion" id="consejos">
-
-<div class="titulo">
-
-<h2>🛡️ Aprende a protegerte</h2>
-
-<p>
-Pequeñas acciones pueden ayudarte a reducir
-muchos riesgos digitales.
-</p>
-
-</div>
-
-<div class="consejos">
-
-<div class="consejo">
-
-<div class="numero">01</div>
-
-<div>
-
-<h3>Utiliza contraseñas fuertes</h3>
-
-<p>
-Evita utilizar datos fáciles de adivinar y procura
-no utilizar la misma contraseña en todas tus cuentas.
-</p>
-
-</div>
-
-</div>
-
-<div class="consejo">
-
-<div class="numero">02</div>
-
-<div>
-
-<h3>Activa la autenticación de dos factores</h3>
-
-<p>
-Agrega una capa adicional de seguridad a tus cuentas
-cuando el servicio lo permita.
-</p>
-
-</div>
-
-</div>
-
-<div class="consejo">
-
-<div class="numero">03</div>
-
-<div>
-
-<h3>Piensa antes de hacer clic</h3>
-
-<p>
-Analiza enlaces, mensajes y archivos antes de abrirlos.
-</p>
-
-</div>
-
-</div>
-
-<div class="consejo">
-
-<div class="numero">04</div>
-
-<div>
-
-<h3>Protege tu información</h3>
-
-<p>
-Evita publicar datos personales que puedan ser
-utilizados para suplantarte.
-</p>
-
-</div>
-
-</div>
-
-<div class="consejo">
-
-<div class="numero">05</div>
-
-<div>
-
-<h3>Mantén tus dispositivos actualizados</h3>
-
-<p>
-Las actualizaciones pueden corregir problemas
-de seguridad.
-</p>
-
-</div>
-
-</div>
-
-<div class="consejo">
-
-<div class="numero">06</div>
-
-<div>
-
-<h3>Verifica antes de confiar</h3>
-
-<p>
-Si recibes una solicitud extraña, confirma la
-información mediante un canal oficial.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
+<!-- ===== CONCEPTOS BÁSICOS ===== -->
+<section id="basicos">
+ <div class="contenedor">
+  <h2>Lo básico, con ejemplos de la vida real</h2>
+  <div class="rejilla">
+   <article class="tarjeta" data-img="🏠|#0b6b66|#4fd1c5|Dibujo de una casa protegida"><h3>Ciberseguridad</h3><p>Son los hábitos y herramientas que protegen tus aparatos y tu información. Es como poner llave, alarma y buenos vecinos a tu casa.</p></article>
+   <article class="tarjeta" data-img="🔑|#b8741a|#f2b134|Dibujo de una llave"><h3>Contraseña</h3><p>Es la llave de tus cuentas. Si es fácil de adivinar o se la das a alguien, cualquiera puede entrar.</p></article>
+   <article class="tarjeta" data-img="🪪|#2a5d9f|#7fb6ee|Dibujo de una cédula"><h3>Datos personales</h3><p>Tu nombre, cédula, fotos, números de tarjeta. Piensa en ellos como los papeles de tu cartera: no se los muestras a cualquiera.</p></article>
+   <article class="tarjeta" data-img="🧱|#7a3b8f|#c79be0|Dibujo de un muro de seguridad"><h3>Actualizaciones</h3><p>Cuando tu celular pide actualizarse, está arreglando cerraduras dañadas que los ladrones ya conocen.</p></article>
+  </div>
+ </div>
 </section>
 
-<!-- =====================================================
-     ¿QUÉ HACER SI FUI VÍCTIMA?
-===================================================== -->
-
-<section class="seccion victima">
-
-<div class="titulo">
-
-<h2>🚨 ¿Qué hago si fui víctima?</h2>
-
-<p>
-Si cometiste un error o sospechas que tus datos
-fueron comprometidos, actuar rápidamente puede ayudar.
-</p>
-
-</div>
-
-<div class="pasos">
-
-<div class="paso">
-
-<div class="paso-numero">01</div>
-
-<div>
-
-<h3>Mantén la calma</h3>
-
-<p>
-No continúes interactuando con el mensaje,
-enlace o persona sospechosa.
-</p>
-
-</div>
-
-</div>
-
-<div class="paso">
-
-<div class="paso-numero">02</div>
-
-<div>
-
-<h3>Cambia tus contraseñas</h3>
-
-<p>
-Si entregaste una contraseña, cámbiala inmediatamente,
-especialmente si la utilizas en otros servicios.
-</p>
-
-</div>
-
-</div>
-
-<div class="paso">
-
-<div class="paso-numero">03</div>
-
-<div>
-
-<h3>Activa medidas de seguridad</h3>
-
-<p>
-Activa autenticación de dos factores y revisa
-la actividad de tus cuentas.
-</p>
-
-</div>
-
-</div>
-
-<div class="paso">
-
-<div class="paso-numero">04</div>
-
-<div>
-
-<h3>Reporta el incidente</h3>
-
-<p>
-Utiliza los canales oficiales de la plataforma
-o entidad involucrada.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
+<!-- ===== AMENAZAS ===== -->
+<section id="amenazas" style="background:var(--tarjeta)">
+ <div class="contenedor">
+  <h2>Amenazas comunes</h2>
+  <p class="intro">Estas son las amenazas más frecuentes. Cada una tiene tres partes: qué es, cómo reconocerla y cómo protegerte.</p>
+  <div class="rejilla amenazas-rej">
+   <article class="tarjeta amenaza" data-img="🎣|#b3361f|#f2a58f|Dibujo de un anzuelo de pesca"><h3>Phishing (pesca de datos)</h3>
+    <p><b>Qué es:</b> un mensaje falso que parece de tu banco, una tienda o un familiar para que entregues tus datos. Es como una carnada: parece comida, pero tiene anzuelo.</p>
+    <p><b>Cómo reconocerlo:</b> te mete prisa ("¡Tu cuenta se bloquea hoy!"), tiene errores de escritura o un enlace raro.</p>
+    <p><b>Cómo protegerte:</b> no abras enlaces del mensaje. Entra tú mismo a la página oficial o llama al número que aparece en tu tarjeta.</p></article>
+   <article class="tarjeta amenaza" data-img="🔓|#a8641c|#f2c27a|Dibujo de un candado abierto"><h3>Contraseñas débiles</h3>
+    <p><b>Qué es:</b> claves fáciles como 123456, tu fecha de nacimiento o el nombre de tu mascota. Es dejar la llave debajo del tapete.</p>
+    <p><b>Cómo reconocerlas:</b> si la recuerdas sin esfuerzo porque es corta o la usas en todas partes, es débil.</p>
+    <p><b>Cómo protegerte:</b> usa una frase larga (4 palabras al azar), una distinta por cuenta, y activa la verificación en dos pasos.</p></article>
+   <article class="tarjeta amenaza" data-img="🦠|#2f7d3a|#9ad7a0|Dibujo de un virus informático"><h3>Malware (programas dañinos)</h3>
+    <p><b>Qué es:</b> un programa que se cuela en tu aparato para espiarte, borrar archivos o pedir dinero. Como un invitado que entra y revisa tus cajones.</p>
+    <p><b>Cómo reconocerlo:</b> el aparato va muy lento, aparecen anuncios por todas partes o programas que no instalaste.</p>
+    <p><b>Cómo protegerte:</b> instala apps solo de tiendas oficiales, no abras archivos de desconocidos y mantén un antivirus y el sistema al día.</p></article>
+   <article class="tarjeta amenaza" data-img="📱|#2a5d9f|#9cc8f5|Dibujo de un celular con mensajes"><h3>Estafas en redes sociales</h3>
+    <p><b>Qué es:</b> premios falsos, ofertas increíbles o perfiles de "amigos" que piden dinero. Es el vendedor que promete lo imposible.</p>
+    <p><b>Cómo reconocerlas:</b> piden pagar para recibir un premio, te presionan o el perfil es nuevo y casi sin fotos.</p>
+    <p><b>Cómo protegerte:</b> si un amigo pide dinero, llámalo. Desconfía de lo que parece "demasiado bueno" y bloquea y reporta el perfil.</p></article>
+   <article class="tarjeta amenaza" data-img="🔐|#7a3b8f|#c79be0|Dibujo de un candado de color morado"><h3>Ransomware (secuestro de archivos)</h3>
+    <p><b>Qué es:</b> un programa que bloquea tus archivos y pide dinero para devolverlos. Es como si alguien le pusiera candado a tu armario.</p>
+    <p><b>Cómo reconocerlo:</b> aparece un mensaje en pantalla diciendo que tus archivos están bloqueados y te dan un plazo para pagar.</p>
+    <p><b>Cómo protegerte:</b> guarda copias de tus archivos fuera del computador, no abras adjuntos desconocidos y mantén todo actualizado.</p></article>
+   <article class="tarjeta amenaza" data-img="🎭|#a8341f|#f2a58f|Dibujo de máscaras de teatro"><h3>Ingeniería social (engaño a la persona)</h3>
+    <p><b>Qué es:</b> engañar a la persona y no a la máquina: llamadas, mensajes o alguien que se hace pasar por el banco, soporte técnico o un familiar.</p>
+    <p><b>Cómo reconocerla:</b> te piden datos o códigos, se presentan como autoridad, te presionan o te piden guardar el secreto.</p>
+    <p><b>Cómo protegerte:</b> no des datos en una llamada o mensaje que tú no iniciaste. Cuelga y llama tú al número oficial.</p></article>
+   <article class="tarjeta amenaza" data-img="👤|#2a7d9f|#8fd3ee|Dibujo de la silueta de una persona"><h3>Robo de identidad</h3>
+    <p><b>Qué es:</b> alguien usa tu nombre, tus documentos o tus fotos para pedir créditos, abrir cuentas o hacerse pasar por ti.</p>
+    <p><b>Cómo reconocerlo:</b> llegan cobros o llamadas por deudas que no hiciste, o aparecen cuentas nuevas a tu nombre.</p>
+    <p><b>Cómo protegerte:</b> comparte lo mínimo, no publiques fotos de tus documentos y revisa seguido los movimientos de tu banco.</p></article>
+   <article class="tarjeta amenaza" data-img="📡|#0b6b66|#7fe0d6|Dibujo de una antena de wifi"><h3>Wifi falso o público</h3>
+    <p><b>Qué es:</b> una red gratis que parece del café o del aeropuerto, pero la montó un delincuente para ver lo que haces.</p>
+    <p><b>Cómo reconocerlo:</b> el nombre es casi igual al del lugar, no tiene clave o te pide datos personales antes de conectarte.</p>
+    <p><b>Cómo protegerte:</b> pregunta el nombre exacto en el lugar y evita el banco o las compras en wifi público. Usa los datos del celular.</p></article>
+  </div>
+ </div>
 </section>
 
-<!-- =====================================================
-     EVALUACIÓN
-===================================================== -->
-
-<section class="seccion evaluacion" id="evaluacion">
-
-<div class="titulo">
-
-<h2>🧪 Comprueba lo que aprendiste</h2>
-
-<p>
-Responde cinco preguntas y descubre qué tan preparado
-estás para identificar amenazas digitales.
-</p>
-
-</div>
-
-<div class="simulador">
-
-<div class="info-test">
-
-<span id="numeroPregunta">
-Pregunta 1 de 5
-</span>
-
-<span id="puntos">
-Puntos: 0
-</span>
-
-</div>
-
-<div class="barra">
-
-<div class="progreso" id="progreso"></div>
-
-</div>
-
-<div id="pregunta"></div>
-
-<div class="opciones" id="opciones"></div>
-
-<button id="siguiente"
-onclick="siguientePregunta()">
-
-Siguiente pregunta →
-
-</button>
-
-<div id="resultado"></div>
-
-<!-- RESULTADO FINAL -->
-
-<div class="resultado-final" id="resultadoFinal">
-
-<div class="circulo">
-
-<strong id="porcentaje">0%</strong>
-
-<span>APRENDIZAJE</span>
-
-</div>
-
-<h3 id="nivel"></h3>
-
-<p id="mensajeFinal"></p>
-
-<button class="boton-repetir"
-onclick="reiniciarEvaluacion()">
-
-🔄 Realizar otra evaluación
-
-</button>
-
-</div>
-
-</div>
-
+<!-- ===== BUENAS PRÁCTICAS ===== -->
+<section id="practicas">
+ <div class="contenedor">
+  <h2>Buenas prácticas: tu lista de revisión</h2>
+  <div class="cons-panel">
+   <svg class="escudo" viewBox="0 0 100 120" role="img" aria-label="Escudo que se llena a medida que marcas hábitos">
+    <defs><clipPath id="cpE"><rect id="llenoE" x="0" y="120" width="100" height="0"/></clipPath></defs>
+    <path d="M50 4l42 15v38c0 30-18 50-42 59C26 107 8 87 8 57V19z" style="fill:var(--primario)" clip-path="url(#cpE)"/>
+    <path d="M50 4l42 15v38c0 30-18 50-42 59C26 107 8 87 8 57V19z" fill="none" style="stroke:var(--suave)" stroke-width="5"/>
+   </svg>
+   <div><p class="intro">Marca los hábitos que ya practicas y mira cómo se llena tu escudo.</p>
+   <p><strong id="conteo" aria-live="polite">0 de 7</strong> hábitos. Tu nivel: <strong id="nivel">Principiante</strong></p>
+   <progress id="progCons" max="7" value="0" aria-label="Hábitos marcados"></progress></div>
+  </div>
+  <ul class="consejos">
+   <li><label><input type="checkbox"> Uso una contraseña distinta y larga en mis cuentas importantes.</label></li>
+   <li><label><input type="checkbox"> Activé la verificación en dos pasos (un código extra, como una segunda cerradura).</label></li>
+   <li><label><input type="checkbox"> Actualizo mi celular y mis aplicaciones cuando me lo piden.</label></li>
+   <li><label><input type="checkbox"> Antes de dar clic a un enlace, me pregunto: ¿lo esperaba? ¿quién lo envía?</label></li>
+   <li><label><input type="checkbox"> No comparto códigos que llegan por mensaje, ni siquiera con "el banco".</label></li>
+   <li><label><input type="checkbox"> Evito hacer pagos o entrar al banco en wifi público.</label></li>
+   <li><label><input type="checkbox"> Guardo copia de mis fotos y documentos importantes.</label></li>
+  </ul>
+ </div>
 </section>
 
-<!-- =====================================================
-     VENTANAS EDUCATIVAS
-===================================================== -->
-
-<div class="ventana" id="phishing">
-
-<div class="contenido-ventana">
-
-<span class="cerrar"
-onclick="cerrarVentana('phishing')">
-× </span>
-
-<h2>🎣 Phishing</h2>
-
-<p>
-El phishing busca engañar a una persona mediante
-mensajes, correos, sitios web u otros medios que
-aparentan ser legítimos.
-</p>
-
-<div class="lista">
-
-<div>⚠️ Desconfía de mensajes que exigen actuar inmediatamente.</div>
-
-<div>🔗 Revisa cuidadosamente los enlaces.</div>
-
-<div>🔐 Nunca compartas contraseñas mediante mensajes.</div>
-
-<div>🌐 Accede directamente al sitio oficial cuando tengas dudas.</div>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="ventana" id="malware">
-
-<div class="contenido-ventana">
-
-<span class="cerrar"
-onclick="cerrarVentana('malware')">
-× </span>
-
-<h2>🦠 Malware</h2>
-
-<p>
-Malware es un término utilizado para describir software
-malicioso que puede afectar dispositivos o información.
-</p>
-
-<div class="lista">
-
-<div>🦠 Virus</div>
-
-<div>🔒 Ransomware</div>
-
-<div>👁️ Spyware</div>
-
-<div>🤖 Troyanos</div>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="ventana" id="ingenieria">
-
-<div class="contenido-ventana">
-
-<span class="cerrar"
-onclick="cerrarVentana('ingenieria')">
-× </span>
-
-<h2>🎭 Ingeniería social</h2>
-
-<p>
-Consiste en utilizar técnicas de manipulación para
-conseguir que una persona revele información o
-realice una acción.
-</p>
-
-<div class="lista">
-
-<div>📞 Llamadas falsas</div>
-
-<div>📧 Correos engañosos</div>
-
-<div>👤 Suplantación de personas conocidas</div>
-
-<div>🎁 Ofertas falsas</div>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="ventana" id="identidad">
-
-<div class="contenido-ventana">
-
-<span class="cerrar"
-onclick="cerrarVentana('identidad')">
-× </span>
-
-<h2>👤 Suplantación de identidad</h2>
-
-<p>
-Ocurre cuando alguien utiliza información o perfiles
-falsos para hacerse pasar por otra persona.
-</p>
-
-<div class="lista">
-
-<div>🔎 Verifica perfiles sospechosos.</div>
-
-<div>📱 No publiques información personal innecesaria.</div>
-
-<div>🔐 Protege tus cuentas.</div>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="ventana" id="contrasenas">
-
-<div class="contenido-ventana">
-
-<span class="cerrar"
-onclick="cerrarVentana('contrasenas')">
-× </span>
-
-<h2>🔓 Robo de contraseñas</h2>
-
-<p>
-Las contraseñas pueden ser obtenidas mediante engaños,
-filtraciones o diferentes técnicas de ataque.
-</p>
-
-<div class="lista">
-
-<div>🔑 Utiliza contraseñas diferentes.</div>
-
-<div>🔐 Utiliza autenticación de dos factores.</div>
-
-<div>🚫 No compartas tus claves.</div>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="ventana" id="fraudes">
-
-<div class="contenido-ventana">
-
-<span class="cerrar"
-onclick="cerrarVentana('fraudes')">
-× </span>
-
-<h2>💳 Fraudes digitales</h2>
-
-<p>
-Son engaños que buscan obtener dinero, información
-o algún beneficio utilizando medios digitales.
-</p>
-
-<div class="lista">
-
-<div>🎁 Premios que nunca solicitaste.</div>
-
-<div>💰 Inversiones con promesas irreales.</div>
-
-<div>🛒 Tiendas o promociones sospechosas.</div>
-
-<div>📱 Solicitudes inesperadas de dinero.</div>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="ventana" id="redes">
-
-<div class="contenido-ventana">
-
-<span class="cerrar"
-onclick="cerrarVentana('redes')">
-× </span>
-
-<h2>📱 Seguridad en redes sociales</h2>
-
-<p>
-Las redes sociales pueden exponer información personal
-que puede ser utilizada para realizar ataques.
-</p>
-
-<div class="lista">
-
-<div>🔒 Revisa la privacidad de tus perfiles.</div>
-
-<div>👤 Desconfía de perfiles desconocidos.</div>
-
-<div>📸 Evita compartir información sensible.</div>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="ventana" id="wifi">
-
-<div class="contenido-ventana">
-
-<span class="cerrar"
-onclick="cerrarVentana('wifi')">
-× </span>
-
-<h2>📡 Riesgos en Wi-Fi</h2>
-
-<p>
-Las redes públicas o desconocidas requieren especial
-precaución al momento de utilizarlas.
-</p>
-
-<div class="lista">
-
-<div>🔐 Evita realizar operaciones sensibles en redes desconocidas.</div>
-
-<div>📱 Mantén actualizado tu dispositivo.</div>
-
-<div>🌐 Verifica el nombre de la red antes de conectarte.</div>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="ventana" id="privacidad">
-
-<div class="contenido-ventana">
-
-<span class="cerrar"
-onclick="cerrarVentana('privacidad')">
-× </span>
-
-<h2>🕵️ Privacidad digital</h2>
-
-<p>
-La información que compartimos en Internet puede
-revelar datos sobre nuestra vida, ubicación o identidad.
-</p>
-
-<div class="lista">
-
-<div>📍 Evita publicar tu ubicación en tiempo real.</div>
-
-<div>📷 Revisa qué información aparece en tus publicaciones.</div>
-
-<div>🔐 Configura correctamente la privacidad.</div>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
+<!-- ===== CONSEJOS POR EDAD ===== -->
+<section id="edades" style="background:var(--tarjeta)">
+ <div class="contenedor">
+  <h2>Consejos para cada edad</h2>
+  <p class="intro">Todos podemos estar seguros en internet. Compártele esta sección a alguien de tu familia.</p>
+  <div class="rejilla">
+   <article class="tarjeta" data-img="🧒|#2a7d9f|#8fd3ee|Dibujo de un niño jugando"><h3>Niñas y niños</h3><p>No des tu nombre completo, tu colegio ni tu dirección en juegos o chats. Si alguien desconocido te escribe, avísale a un adulto de confianza. Si algo te incomoda, siempre puedes contarlo.</p></article>
+   <article class="tarjeta" data-img="🧑‍💻|#6a3fa0|#c3a2ec|Dibujo de una persona joven con computador"><h3>Jóvenes</h3><p>Lo que publicas puede quedarse para siempre, así que piensa antes de subirlo. Ajusta la privacidad de tus redes, no compartas fotos íntimas y desconfía de ofertas de trabajo o dinero fácil.</p></article>
+   <article class="tarjeta" data-img="💼|#935b12|#f2c06b|Dibujo de un maletín de trabajo"><h3>Adultos</h3><p>Usa contraseñas diferentes para el trabajo y para la casa. Desconfía de facturas o cobros inesperados y no abras archivos adjuntos que no esperabas, aunque parezcan de un jefe.</p></article>
+   <article class="tarjeta" data-img="👵|#b3361f|#f5b3a2|Dibujo de una abuela con celular"><h3>Adultos mayores</h3><p>Si te llaman diciendo que son del banco, cuelga y llama tú al número de tu tarjeta. Pide a alguien de confianza que te ayude a activar la verificación en dos pasos. Desconfía de premios y de "nietos" en apuros.</p></article>
+  </div>
+ </div>
+</section>
+
+<!-- ===== MITOS Y VERDADES ===== -->
+<section id="mitos">
+ <div class="contenedor">
+  <h2>Mitos y verdades</h2>
+  <p class="intro">Piensa tu respuesta y luego abre cada tarjeta.</p>
+  <details><summary>"A mí nadie me va a atacar, no tengo nada importante."</summary><p><span class="veredicto" style="color:var(--mal)">Mito.</span> Los ataques suelen ser masivos y automáticos. Tus cuentas, tu identidad y tu dinero sí valen para un delincuente.</p></details>
+  <details><summary>"Si un mensaje llega de un contacto conocido, es seguro."</summary><p><span class="veredicto" style="color:var(--mal)">Mito.</span> La cuenta de tu contacto pudo ser robada. Si el mensaje es raro, confirma por otra vía.</p></details>
+  <details><summary>"El candado del navegador significa que la página es confiable."</summary><p><span class="veredicto" style="color:var(--mal)">Mito.</span> Solo indica que la conexión va cifrada. Hasta páginas falsas pueden tenerlo. Revisa también la dirección.</p></details>
+  <details><summary>"Usar la verificación en dos pasos hace mi cuenta mucho más segura."</summary><p><span class="veredicto" style="color:var(--ok)">Verdad.</span> Aunque alguien conozca tu contraseña, necesita además el segundo código.</p></details>
+  <details><summary>"Un banco nunca te pedirá tu clave completa por teléfono o mensaje."</summary><p><span class="veredicto" style="color:var(--ok)">Verdad.</span> Si te la piden, es una estafa. Cuelga y llama tú al número oficial.</p></details>
+ </div>
+</section>
+
+<!-- ===== JUEGOS ===== -->
+<section id="juegos" style="background:var(--tarjeta)">
+ <div class="contenedor">
+  <h2>🎮 Zona de juegos</h2>
+  <p class="intro">Aprender jugando es más fácil. Prueba los seis.</p>
+  <div class="rejilla juegos">
+   <article class="tarjeta"><h3>🔐 Prueba tu contraseña</h3>
+    <label for="clave" class="intro">Escribe una contraseña de ejemplo (nunca la real):</label>
+    <input type="text" id="clave" autocomplete="off" placeholder="Ej: MiGato2020">
+    <div class="medidor" aria-hidden="true"><span id="barra"></span></div>
+    <p id="claveMsg" aria-live="polite" style="margin:0">Escribe algo para ver qué tan fuerte es.</p>
+    <ul class="reglas" id="reglas" aria-label="Requisitos de una buena contraseña">
+     <li data-r="len">12 o más caracteres</li><li data-r="mix">Mayúsculas y minúsculas</li><li data-r="num">Al menos un número</li><li data-r="sim">Un símbolo o un espacio</li><li data-r="com">No es una clave común</li>
+    </ul>
+    <button class="sec" id="gen">🎲 Inventar una frase de ejemplo</button>
+    <p class="retro" id="genOut" aria-live="polite"></p></article>
+   <article class="tarjeta"><h3>🕵️ Detective de mensajes</h3><p>Lee cada mensaje y decide si es seguro o un fraude.</p><div id="detCaja"></div></article>
+   <article class="tarjeta"><h3>🧠 Memoria de seguridad</h3><div id="memCaja"></div></article>
+   <article class="tarjeta"><h3>🦠 Atrapa los virus</h3><div id="virCaja"></div></article>
+   <article class="tarjeta"><h3>🔤 Ahorcado digital</h3><div id="ahoCaja"></div></article>
+   <article class="tarjeta"><h3>🔗 Caza el enlace falso</h3><div id="enlCaja"></div></article>
+  </div>
+ </div>
+</section>
+
+<!-- ===== QUIZ ===== -->
+<section id="quiz">
+ <div class="contenedor">
+  <h2>Mini quiz: ¿qué aprendiste?</h2>
+  <div class="quiz-zona">
+   <aside class="tarjeta lateral" aria-label="Consejo rápido">
+    <h3>💡 Consejo rápido</h3>
+    <p id="consejoTxt" aria-live="polite"></p>
+    <button class="sec" id="otroConsejo">Otro consejo</button>
+   </aside>
+   <div class="quiz">
+    <progress id="prog" max="5" value="0" aria-label="Progreso del quiz"></progress>
+    <div class="tarjeta" id="quizCaja"></div>
+   </div>
+   <aside class="tarjeta lateral" aria-label="Tus insignias">
+    <h3>🏆 Tus insignias</h3>
+    <p><strong id="logrosN">0 de 7</strong> desbloqueadas. Juega y responde para ganarlas.</p>
+    <ul class="insignias" id="insignias"></ul>
+   </aside>
+  </div>
+ </div>
+</section>
+
+<!-- ===== AYUDA ===== -->
+<section id="ayuda" style="background:var(--tarjeta)">
+ <div class="contenedor">
+  <h2>Si ya caíste en una estafa: 4 pasos</h2>
+  <p class="intro">Le puede pasar a cualquiera. Lo importante es actuar rápido y sin vergüenza.</p>
+  <div class="rejilla">
+   <article class="tarjeta" data-img="🔄|#0b6b66|#7fe0d6|Dibujo de flechas de cambio"><h3>1. Cambia tus contraseñas</h3><p>Empieza por el correo y el banco, y sigue con las demás cuentas. Usa claves nuevas y largas.</p></article>
+   <article class="tarjeta" data-img="🏦|#2a5d9f|#9cc8f5|Dibujo de un banco"><h3>2. Avisa a tu banco</h3><p>Llama al número oficial de tu tarjeta y pide bloquear cuentas o tarjetas comprometidas.</p></article>
+   <article class="tarjeta" data-img="📸|#7a3b8f|#d6aaea|Dibujo de una cámara"><h3>3. Guarda las pruebas</h3><p>Toma capturas de pantalla de los mensajes, enlaces y números. No borres nada.</p></article>
+   <article class="tarjeta" data-img="📣|#b3361f|#f5a898|Dibujo de un megáfono"><h3>4. Denuncia y cuenta</h3><p>Reporta ante las autoridades de tu país y avisa a tu familia y contactos: así evitas que otros caigan.</p></article>
+  </div>
+ </div>
+</section>
+
+<!-- ===== GLOSARIO ===== -->
+<section id="glosario">
+ <div class="contenedor">
+  <h2>Glosario</h2>
+  <dl>
+   <dt>Antivirus</dt><dd>Programa que revisa tu aparato y detecta cosas dañinas, como un guardia de seguridad.</dd>
+   <dt>Cifrado</dt><dd>Revolver un mensaje para que solo quien tenga la "llave" pueda leerlo.</dd>
+   <dt>Enlace (link)</dt><dd>Texto o botón que te lleva a otra página. Puede esconder una dirección falsa.</dd>
+   <dt>Hacker</dt><dd>Persona que se mete en sistemas ajenos. Si lo hace con malas intenciones, es un ciberdelincuente.</dd>
+   <dt>Ransomware</dt><dd>Malware que "secuestra" tus archivos y pide dinero para devolverlos.</dd>
+   <dt>Verificación en dos pasos</dt><dd>Pedir un segundo dato (por ejemplo, un código en tu celular) además de la contraseña.</dd>
+   <dt>VPN</dt><dd>Un túnel privado para tu conexión, útil en wifi públicos.</dd>
+  </dl>
+ </div>
+</section>
+
+<!-- ===== RECURSOS ===== -->
+<section id="recursos" style="background:var(--tarjeta)">
+ <div class="contenedor">
+  <h2>Recursos para seguir aprendiendo</h2>
+  <ul>
+   <li><a href="https://haveibeenpwned.com" target="_blank" rel="noopener">Have I Been Pwned</a>: revisa si tu correo apareció en una filtración de datos.</li>
+   <li><a href="https://www.incibe.es/ciudadania" target="_blank" rel="noopener">INCIBE (ciudadanía)</a>: guías gratuitas en español para todas las edades.</li>
+   <li><a href="https://staysafeonline.org" target="_blank" rel="noopener">Stay Safe Online</a>: consejos prácticos para el día a día.</li>
+   <li>Ante un fraude: avisa de inmediato a tu banco y denuncia ante las autoridades de tu país.</li>
+  </ul>
+ </div>
+</section>
+</main>
 
 <footer>
-
-<h2>🌐 Conecta Seguro</h2>
-
-<p>
-Aprende. Identifica. Protégete.
-</p>
-
-<p>
-Plataforma educativa de ciberseguridad
-</p>
-
-<p>
-Proyecto académico de Ingeniería de Sistemas · 2026
-</p>
-
+ <div class="contenedor">
+  <p class="pie-titulo">🌐 Conecta Seguro</p>
+  <p class="pie-txt">Aprende. Identifica. Protégete.<br>Plataforma educativa de ciberseguridad<br>Proyecto académico de Ingeniería de Sistemas · 2026</p>
+ </div>
 </footer>
 
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
-
 <script>
-
-
-/* =====================================================
-   VENTANAS
-===================================================== */
-
-function abrirVentana(id){
-
-document.getElementById(id).style.display="flex";
-
-}
-
-
-function cerrarVentana(id){
-
-document.getElementById(id).style.display="none";
-
-}
-
-
-window.onclick=function(event){
-
-if(event.target.classList.contains("ventana")){
-
-event.target.style.display="none";
-
-}
-
-}
-
-
-/* =====================================================
-   BANCO DE PREGUNTAS
-===================================================== */
-
-const bancoPreguntas=[
-
-{
-pregunta:"Recibes un correo que afirma que tu cuenta será cerrada en 10 minutos si no haces clic en un enlace. ¿Qué deberías hacer?",
-
-opciones:[
-"Hacer clic inmediatamente.",
-"Responder enviando mi contraseña.",
-"Verificar la información desde el sitio oficial.",
-"Reenviar el correo a todos mis contactos."
-],
-
-correcta:2
-},
-
-
-{
-pregunta:"¿Cuál es una característica frecuente de un intento de phishing?",
-
-opciones:[
-"Un mensaje que genera urgencia y solicita información.",
-"Una actualización realizada desde la aplicación oficial.",
-"Una contraseña diferente para cada cuenta.",
-"Una página que abriste escribiendo directamente su dirección."
-],
-
-correcta:0
-},
-
-
-{
-pregunta:"¿Cuál es una buena práctica para proteger tus cuentas?",
-
-opciones:[
-"Usar la misma contraseña en todos los servicios.",
-"Compartir la contraseña con personas de confianza.",
-"Utilizar autenticación de dos factores.",
-"Escribir la contraseña en publicaciones."
-],
-
-correcta:2
-},
-
-
-{
-pregunta:"Una persona desconocida te escribe diciendo que es un empleado de un banco y necesita tus códigos de seguridad. ¿Qué haces?",
-
-opciones:[
-"Entregar los códigos.",
-"Verificar directamente con el banco.",
-"Enviar una fotografía de mi documento.",
-"Dar solamente uno de los códigos."
-],
-
-correcta:1
-},
-
-
-{
-pregunta:"¿Qué deberías hacer antes de descargar un archivo enviado por una persona desconocida?",
-
-opciones:[
-"Descargarlo para descubrir qué contiene.",
-"Compartirlo primero con amigos.",
-"Verificar su origen y evitar abrirlo si resulta sospechoso.",
-"Desactivar el antivirus."
-],
-
-correcta:2
-},
-
-
-{
-pregunta:"¿Cuál de estas situaciones podría representar ingeniería social?",
-
-opciones:[
-"Una actualización automática del sistema.",
-"Una persona que intenta convencerte de revelar información confidencial.",
-"Una contraseña almacenada en un gestor.",
-"Una página oficial."
-],
-
-correcta:1
-},
-
-
-{
-pregunta:"¿Qué información conviene evitar publicar innecesariamente en redes sociales?",
-
-opciones:[
-"Una opinión sobre una película.",
-"Información sensible como documentos, ubicación o datos personales.",
-"Una fotografía de un paisaje.",
-"El nombre de una canción."
-],
-
-correcta:1
-},
-
-
-{
-pregunta:"¿Qué es el malware?",
-
-opciones:[
-"Una herramienta para crear contraseñas.",
-"Un tipo de conexión Wi-Fi.",
-"Software diseñado para realizar acciones maliciosas.",
-"Un sistema operativo."
-],
-
-correcta:2
-},
-
-
-{
-pregunta:"Encuentras una oferta en Internet con un precio extremadamente bajo y te piden pagar inmediatamente. ¿Qué haces?",
-
-opciones:[
-"Pago rápidamente antes de que desaparezca.",
-"Verifico la tienda, la oferta y sus canales oficiales.",
-"Envío mis datos personales primero.",
-"Comparto la oferta con mis contactos."
-],
-
-correcta:1
-},
-
-
-{
-pregunta:"¿Por qué es importante mantener actualizado un dispositivo?",
-
-opciones:[
-"Porque cambia el color de la pantalla.",
-"Porque puede corregir problemas y mejorar la seguridad.",
-"Porque elimina todas las fotografías.",
-"Porque aumenta automáticamente las contraseñas."
-],
-
-correcta:1
-},
-
-
-{
-pregunta:"Si sospechas que alguien obtuvo tu contraseña, ¿qué deberías hacer primero?",
-
-opciones:[
-"Publicarla para avisar a otras personas.",
-"Cambiarla y revisar la seguridad de la cuenta.",
-"Seguir utilizándola.",
-"Compartirla con un amigo."
-],
-
-correcta:1
-},
-
-
-{
-pregunta:"¿Cuál es la mejor reacción ante un enlace sospechoso recibido por mensaje?",
-
-opciones:[
-"Abrirlo en modo incógnito.",
-"Evitar abrirlo y verificar el mensaje por otra vía.",
-"Descargar todo lo que aparezca.",
-"Responder con información personal."
-],
-
-correcta:1
-}
-
+/* ===== PREGUNTAS DEL QUIZ (edítalas aquí) =====
+   q: pregunta | o: opciones | c: posición de la correcta (empieza en 0) | e: explicación */
+const PREGUNTAS = [
+ {q:"Recibes un mensaje del \"banco\" que dice que tu cuenta se bloquea hoy y trae un enlace. ¿Qué haces?",
+  o:["Doy clic rápido para evitar el bloqueo","Entro a la página oficial o llamo al número de mi tarjeta","Reenvío el mensaje a mis amigos"],c:1,
+  e:"Correcto: el afán es la señal típica del phishing. Verifica siempre por un canal oficial."},
+ {q:"¿Cuál es la contraseña más segura?",
+  o:["123456","Mi fecha de nacimiento","Una frase larga de varias palabras al azar"],c:2,
+  e:"Las frases largas son difíciles de adivinar y más fáciles de recordar que símbolos raros."},
+ {q:"Un \"amigo\" te escribe por redes pidiendo dinero urgente. Lo mejor es:",
+  o:["Enviar el dinero, es mi amigo","Llamarlo por teléfono para confirmar","Darle mi clave para que él lo resuelva"],c:1,
+  e:"Su cuenta pudo ser robada. Confirmar por otra vía te protege a ti y a él."},
+ {q:"¿Para qué sirven las actualizaciones del celular?",
+  o:["Solo para cambiar el diseño","Para arreglar fallos de seguridad","Para gastar más batería"],c:1,
+  e:"Muchas actualizaciones cierran \"puertas\" que los delincuentes ya conocen."},
+ {q:"¿Dónde es mejor descargar aplicaciones?",
+  o:["De la tienda oficial del celular","De un enlace que me llegó por mensaje","De cualquier página que la regale"],c:0,
+  e:"Las tiendas oficiales revisan las apps. Los enlaces desconocidos pueden traer malware."}
 ];
 
+/* ===== IMÁGENES ILUSTRADAS (se crean solas a partir de data-img en cada tarjeta) =====
+   Para usar una FOTO real, cambia la tarjeta por: <img class="banner" src="foto.jpg" alt="Descripción"> */
+document.querySelectorAll("[data-img]").forEach(t => {
+  const [e, a, b, l] = t.dataset.img.split("|");
+  t.insertAdjacentHTML("afterbegin", `<svg class="banner" viewBox="0 0 400 150" role="img" aria-label="${l}"><defs><linearGradient id="g${e.codePointAt(0)}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient></defs><rect width="400" height="150" fill="url(#g${e.codePointAt(0)})"/><circle cx="50" cy="20" r="60" fill="#fff" opacity=".12"/><circle cx="360" cy="140" r="80" fill="#fff" opacity=".12"/><text x="200" y="102" font-size="82" text-anchor="middle">${e}</text></svg>`);
+});
 
-/* =====================================================
-   VARIABLES
-===================================================== */
+/* ===== VIDEO DE YOUTUBE =====
+   >>> PEGA AQUÍ EL ENLACE DE TU VIDEO (ej: "https://www.youtube.com/watch?v=XXXXXXXXXXX") <<< */
+const VIDEO_URL = "";
+(function () {
+  const caja = document.getElementById("videoCaja");
+  const m = VIDEO_URL.match(/(?:v=|youtu\.be\/|embed\/|shorts\/)([\w-]{11})/);
+  if (m) {
+    caja.style.border = "0";
+    caja.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${m[1]}" title="Video educativo sobre ciberseguridad" loading="lazy" allow="accelerometer; encrypted-media; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+  } else {
+    caja.innerHTML = '<div class="vacio"><span style="font-size:2.5rem" aria-hidden="true">▶️</span><strong>Aquí irá tu video de YouTube</strong><span class="intro">Pega el enlace en la variable VIDEO_URL del código.</span></div>';
+  }
+})();
 
-let preguntasEvaluacion=[];
+/* ===== AJUSTES: tamaño de texto y tema ===== */
+const raiz = document.documentElement;
+let tam = 1.125;
+const poner = n => { tam = Math.min(1.75, Math.max(0.95, n)); raiz.style.setProperty("--tam", tam + "rem"); };
+document.getElementById("mas").onclick = () => poner(tam + .125);
+document.getElementById("menos").onclick = () => poner(tam - .125);
+raiz.dataset.theme = "dark"; /* oscuro por defecto; cambia a "light" si prefieres el claro */
+document.getElementById("tema").onclick = () => raiz.dataset.theme = raiz.dataset.theme === "dark" ? "light" : "dark";
 
-let preguntaActual=0;
+/* ===== MEDIDOR DE CONTRASEÑA ===== */
+const clave = document.getElementById("clave"), barra = document.getElementById("barra"), msg = document.getElementById("claveMsg");
+clave.addEventListener("input", () => {
+  const v = clave.value; let p = 0;
+  if (v.length >= 8) p++; if (v.length >= 12) p++; if (v.length >= 16) p++;
+  if (/[a-z]/.test(v) && /[A-Z]/.test(v)) p++;
+  if (/\d/.test(v)) p++; if (/[^\w\s]/.test(v) || /\s/.test(v)) p++;
+  if (/^(123456|password|qwerty|contraseña|abc123)/i.test(v)) p = 0;
+  const niveles = [["Muy débil: cualquiera la adivinaría.","#ff7a6b"],["Débil: hazla más larga.","#ff7a6b"],["Regular: añade más palabras.","#f2b134"],["Buena, pero puede mejorar.","#f2b134"],["Fuerte.","#4ade9a"],["Muy fuerte. ¡Excelente!","#4ade9a"],["Muy fuerte. ¡Excelente!","#4ade9a"]];
+  const n = v ? niveles[p] : ["Escribe algo para ver qué tan fuerte es.","#ff7a6b"];
+  barra.style.width = v ? Math.max(8, p / 6 * 100) + "%" : "0"; barra.style.background = n[1]; msg.textContent = n[0];
+});
 
-let puntuacion=0;
-
-const TOTAL_PREGUNTAS=5;
-
-
-/* =====================================================
-   MEZCLAR PREGUNTAS
-===================================================== */
-
-function mezclar(array){
-
-let copia=[...array];
-
-for(let i=copia.length-1;i>0;i--){
-
-let j=Math.floor(Math.random()*(i+1));
-
-[copia[i],copia[j]]=[copia[j],copia[i]];
-
+/* ===== CONFETI (celebración) ===== */
+function confeti() {
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const e = ["🎉", "🛡️", "✨", "🔒", "⭐"];
+  for (let k = 0; k < 36; k++) {
+    const x = document.createElement("span"); x.textContent = e[k % 5]; x.setAttribute("aria-hidden", "true");
+    x.style.cssText = `position:fixed;top:-2rem;left:${Math.random() * 100}vw;font-size:${1 + Math.random() * 1.4}rem;pointer-events:none;z-index:99`;
+    document.body.appendChild(x);
+    x.animate([{ transform: "translateY(0) rotate(0)" }, { transform: `translateY(105vh) rotate(${Math.random() * 600}deg)` }], { duration: 2000 + Math.random() * 1800, easing: "ease-in" }).onfinish = () => x.remove();
+  }
 }
+const $ = id => document.getElementById(id);
 
-return copia;
+/* ===== LISTA DE CONSEJOS (interactiva: tips, nivel, escudo que se llena) ===== */
+const TIPS = ["Una frase como \"bici roja vuela lento\" es difícil de adivinar y fácil de recordar.","Así, aunque roben tu clave, no entran sin tu celular.","Cada actualización cierra puertas que los delincuentes ya conocen.","La prisa es la mejor amiga del estafador. Pensar dos veces te salva.","Ni el banco ni nadie serio te pide esos códigos.","El wifi público es como hablar en voz alta en una plaza.","Si pierdes el celular, tus recuerdos siguen a salvo."];
+const NIVELES = ["Principiante","Aprendiz","Aprendiz","Explorador","Protector","Protector","Guardián","¡Escudo completo!"];
+const cajas = document.querySelectorAll(".consejos input");
+let celebrado = false;
+cajas.forEach((c, k) => c.addEventListener("change", () => {
+  const li = c.closest("li"); let t = li.querySelector(".tip");
+  if (c.checked) { if (!t) { t = document.createElement("p"); t.className = "tip"; li.appendChild(t); } t.textContent = "💡 " + TIPS[k]; }
+  else if (t) t.remove();
+  const n = [...cajas].filter(x => x.checked).length, h = 120 * n / cajas.length;
+  $("conteo").textContent = n + " de " + cajas.length; $("nivel").textContent = NIVELES[n];
+  $("progCons").value = n; $("llenoE").setAttribute("y", 120 - h); $("llenoE").setAttribute("height", h);
+  if (n === cajas.length && !celebrado) { celebrado = true; confeti(); logro("habitos"); }
+}));
 
+/* ===== QUIZ ===== */
+let i = 0, puntos = 0, resp = [];
+const cajaQuiz = $("quizCaja");
+function mostrar() {
+  const P = PREGUNTAS[i]; $("prog").value = i;
+  cajaQuiz.innerHTML = `<h3 id="pregunta" tabindex="-1">${i + 1}. ${P.q}</h3><div class="opciones" id="opciones"></div><p class="retro" id="retro" aria-live="polite"></p><button id="siguiente" hidden></button>`;
+  P.o.forEach((t, k) => { const b = document.createElement("button"); b.textContent = t; b.onclick = () => responder(k); $("opciones").appendChild(b); });
+  $("siguiente").onclick = () => { i++; i < PREGUNTAS.length ? mostrar() : final(); };
 }
-
-
-/* =====================================================
-   NUEVA EVALUACIÓN
-===================================================== */
-
-function nuevaEvaluacion(){
-
-preguntasEvaluacion=
-
-mezclar(bancoPreguntas).slice(0,TOTAL_PREGUNTAS);
-
-preguntaActual=0;
-
-puntuacion=0;
-
-document.getElementById("resultadoFinal").style.display="none";
-
-document.getElementById("puntos").textContent="Puntos: 0";
-
-cargarPregunta();
-
+function responder(k) {
+  const P = PREGUNTAS[i], bs = [...$("opciones").children], ok = k === P.c;
+  bs.forEach((b, j) => { b.disabled = true; if (j === P.c) b.classList.add("bien"); });
+  if (ok) { puntos++; $("retro").textContent = "✅ ¡Muy bien! " + P.e; } else { bs[k].classList.add("mal"); $("retro").textContent = "❌ Casi. " + P.e; }
+  resp.push(ok); const s = $("siguiente");
+  s.textContent = i === PREGUNTAS.length - 1 ? "Ver mi resultado" : "Siguiente pregunta"; s.hidden = false; s.focus();
 }
+function final() {
+  const n = puntos, tot = PREGUNTAS.length, C = 2 * Math.PI * 52; $("prog").value = tot;
+  const R = n === tot ? ["Guardián digital", "🛡️", "¡Perfecto! Estás listo para proteger a tu familia."]
+    : n >= 4 ? ["Protector", "🔐", "¡Casi perfecto! Dominas lo esencial."]
+    : n >= 2 ? ["Aprendiz", "🧭", "Vas por buen camino. Repasa las amenazas y vuelve a intentarlo."]
+    : ["Explorador", "🌱", "Todos empezamos así. Lee de nuevo las amenazas y repite el quiz."];
+  cajaQuiz.innerHTML = `<div class="resultado"><svg class="anillo" viewBox="0 0 120 120" role="img" aria-label="Puntaje: ${n} de ${tot}"><circle cx="60" cy="60" r="52" fill="none" stroke="var(--borde)" stroke-width="10"/><circle id="arco" cx="60" cy="60" r="52" fill="none" stroke="var(--primario)" stroke-width="10" stroke-linecap="round" stroke-dasharray="${C}" stroke-dashoffset="${C}" transform="rotate(-90 60 60)" style="transition:stroke-dashoffset 1.2s"/><text x="60" y="69" text-anchor="middle" font-size="28" font-weight="700" fill="currentColor">${n}/${tot}</text></svg><div><p class="medalla" aria-hidden="true">${R[1]}</p><h3 id="pregunta" tabindex="-1">${R[0]}</h3><p>${R[2]}</p></div></div><h4>Repaso de tus respuestas</h4><ul class="repaso">${PREGUNTAS.map((P, k) => `<li class="${resp[k] ? "ok" : "no"}"><span aria-hidden="true">${resp[k] ? "✅" : "❌"}</span><span><strong>${P.o[P.c]}</strong><br><small>${P.e}</small></span></li>`).join("")}</ul><button id="otra">Intentar de nuevo</button> <a class="boton sec" href="#juegos">Ir a los juegos</a>`;
+  requestAnimationFrame(() => requestAnimationFrame(() => $("arco").style.strokeDashoffset = C * (1 - n / tot)));
+  $("otra").onclick = () => { i = 0; puntos = 0; resp = []; mostrar(); };
+  $("pregunta").focus(); if (n >= 4) { confeti(); logro("quiz"); }
+}
+mostrar();
 
+/* ===== JUEGO 1: DETECTIVE DE MENSAJES (edita los mensajes aquí; f:true = es fraude) ===== */
+const MSJ = [
+ {de:"Banco Seguro (soporte@banco-seguro-ayuda.xyz)",t:"Su cuenta será bloqueada en 1 hora. Ingrese aquí para verificar su clave.",f:true,e:"Prisa, dirección rara y te pide la clave: fraude clásico."},
+ {de:"Mamá",t:"Hijo, ya llegué a casa. ¿Cenamos a las 7?",f:false,e:"Mensaje normal, sin enlaces ni peticiones raras."},
+ {de:"Premios Online",t:"¡Ganaste un celular! Paga 20.000 de envío para recibirlo.",f:true,e:"Nadie regala premios a cambio de un pago."},
+ {de:"Tu amigo Carlos (cuenta nueva)",t:"Hermano, présteme 200 mil urgente, le pago mañana. Mande a este número.",f:true,e:"Cuenta nueva y urgencia: llama a Carlos antes de enviar nada."},
+ {de:"Tienda del barrio",t:"Tu pedido sale hoy. Puedes verlo en la app oficial de la tienda.",f:false,e:"Esperabas el pedido y no pide datos. Aun así, entra siempre desde la app oficial."},
+ {de:"Servicio de Entregas",t:"Su paquete está retenido. Pague 3.000 en bit.ly/x9Qz para liberarlo.",f:true,e:"Enlace acortado y cobro inesperado."}
+];
+(function () {
+  const c = $("detCaja"); let k = 0, p = 0;
+  function ver() {
+    if (k >= MSJ.length) {
+      c.innerHTML = `<p class="retro">Terminaste: ${p} de ${MSJ.length} aciertos. ${p >= 5 ? "¡Ojo de detective!" : "Sigue practicando."}</p><button id="detOtra">Jugar otra vez</button>`;
+      $("detOtra").onclick = () => { k = 0; p = 0; ver(); }; if (p >= 5) { confeti(); logro("detective"); } return;
+    }
+    const m = MSJ[k];
+    c.innerHTML = `<div class="msj"><small>De: ${m.de}</small><p style="margin:.4rem 0 0">${m.t}</p></div><div class="opciones2"><button data-r="0">✅ Es seguro</button><button data-r="1">🚨 Es fraude</button></div><p class="retro" aria-live="polite"></p>`;
+    c.querySelectorAll("[data-r]").forEach(b => b.onclick = () => {
+      const bien = (b.dataset.r === "1") === m.f; if (bien) p++;
+      c.querySelector(".opciones2").remove();
+      c.querySelector(".retro").innerHTML = `${bien ? "✅ ¡Correcto!" : "❌ Ojo."} ${m.e} <button id="detSig">Siguiente</button>`;
+      $("detSig").onclick = () => { k++; ver(); }; $("detSig").focus();
+    });
+  }
+  ver();
+})();
 
-/* =====================================================
-   CARGAR PREGUNTA
-===================================================== */
+/* ===== JUEGO 2: MEMORIA (cambia los pares aquí: [dibujo, nombre]) ===== */
+const PARES = [["🎣","Phishing"],["🔑","Contraseña"],["🦠","Malware"],["📶","Wifi público"],["🔄","Actualizar"],["🛡️","Antivirus"]];
+function memoria() {
+  const mem = $("memCaja"); let a = null, bloq = false, ok = 0, mov = 0;
+  const mazo = PARES.flatMap((q, k) => [{k, t: q[0]}, {k, t: q[1]}]).sort(() => Math.random() - .5);
+  mem.innerHTML = `<p>Une cada dibujo con su nombre. Intentos: <strong id="memMov">0</strong></p><div class="mazo"></div>`;
+  const zona = mem.querySelector(".mazo");
+  const tapar = x => { x.classList.remove("abierta"); x.textContent = "❓"; x.setAttribute("aria-label", "Carta oculta"); };
+  mazo.forEach(c => {
+    const b = document.createElement("button"); b.className = "carta"; b.textContent = "❓"; b.setAttribute("aria-label", "Carta oculta");
+    b.onclick = () => {
+      if (bloq || b.classList.contains("abierta")) return;
+      b.classList.add("abierta"); b.textContent = c.t; b.setAttribute("aria-label", c.t);
+      if (!a) { a = {b, c}; return; }
+      mov++; $("memMov").textContent = mov;
+      if (a.c.k === c.k) { ok++; a = null;
+        if (ok === PARES.length) { mem.insertAdjacentHTML("beforeend", `<p class="retro">🎉 ¡Lo lograste en ${mov} intentos! <button id="memOtra">Jugar otra vez</button></p>`); $("memOtra").onclick = memoria; confeti(); logro("memoria"); }
+      } else { bloq = true; const pr = a; a = null; setTimeout(() => { tapar(pr.b); tapar(b); bloq = false; }, 900); }
+    };
+    zona.appendChild(b);
+  });
+}
+memoria();
 
-function cargarPregunta(){
+/* ===== JUEGO 3: ATRAPA LOS VIRUS (dura 20 segundos) ===== */
+(function () {
+  const j = $("virCaja"); let pts = 0, t = 20, run = false, relojM, relojT;
+  j.innerHTML = `<p>Toca los 🦠 y evita los 🔒. Tiempo: <strong id="virT">20</strong> s. Puntos: <strong id="virP">0</strong></p><div class="mazo virus"></div><button id="virGo">Empezar</button><p class="retro" id="virFin" aria-live="polite"></p>`;
+  const g = j.querySelector(".virus"), bs = [];
+  const limpiar = b => { b.textContent = ""; delete b.dataset.q; b.setAttribute("aria-label", "Hueco vacío"); };
+  for (let k = 0; k < 9; k++) {
+    const b = document.createElement("button"); b.className = "carta"; limpiar(b);
+    b.onclick = () => { if (!run || !b.dataset.q) return; pts = Math.max(0, pts + (b.dataset.q === "v" ? 1 : -2)); $("virP").textContent = pts; limpiar(b); };
+    g.appendChild(b); bs.push(b);
+  }
+  $("virGo").onclick = () => {
+    pts = 0; t = 20; run = true; $("virP").textContent = 0; $("virT").textContent = 20; $("virFin").textContent = ""; $("virGo").disabled = true;
+    relojM = setInterval(() => { bs.forEach(limpiar); const b = bs[Math.floor(Math.random() * 9)], v = Math.random() < .75; b.dataset.q = v ? "v" : "c"; b.textContent = v ? "🦠" : "🔒"; b.setAttribute("aria-label", v ? "Virus" : "Candado, no tocar"); }, 750);
+    relojT = setInterval(() => { t--; $("virT").textContent = t;
+      if (t <= 0) { clearInterval(relojT); clearInterval(relojM); run = false; bs.forEach(limpiar); $("virGo").disabled = false; $("virGo").textContent = "Jugar otra vez";
+        $("virFin").textContent = `¡Tiempo! Tu puntaje: ${pts}. ${pts >= 8 ? "¡Eres un cazavirus!" : "Intenta de nuevo, ¡tú puedes!"}`; if (pts >= 8) { confeti(); logro("virus"); } }
+    }, 1000);
+  };
+})();
 
-const pregunta=preguntasEvaluacion[preguntaActual];
-
-document.getElementById("numeroPregunta").textContent=
-
-"Pregunta "+(preguntaActual+1)+" de "+TOTAL_PREGUNTAS;
-
-
-document.getElementById("pregunta").textContent=
-
-pregunta.pregunta;
-
-
-const opciones=document.getElementById("opciones");
-
-opciones.innerHTML="";
-
-
-pregunta.opciones.forEach(function(opcion,indice){
-
-const boton=document.createElement("button");
-
-boton.textContent=opcion;
-
-boton.onclick=function(){
-
-responder(indice);
-
+/* ===== EXTRA DEL PROBADOR: lista de requisitos + generador de frases ===== */
+const REGLAS = {
+  len: v => v.length >= 12, mix: v => /[a-z]/.test(v) && /[A-Z]/.test(v), num: v => /\d/.test(v),
+  sim: v => /[^\w\s]/.test(v) || /\s/.test(v), com: v => v && !/^(123456|password|qwerty|contraseña|abc123)/i.test(v)
+};
+clave.addEventListener("input", () => document.querySelectorAll("#reglas li").forEach(li => li.classList.toggle("ok", !!REGLAS[li.dataset.r](clave.value))));
+const PAL = ["nube","bicicleta","naranja","tortuga","montaña","guitarra","río","cohete","limón","faro","delfín","puente","mariposa","tambor","cometa","girasol","castillo","pingüino","velero","trueno"];
+$("gen").onclick = () => {
+  const f = [0, 0, 0, 0].map(() => PAL[Math.floor(Math.random() * PAL.length)]).join(" ");
+  $("genOut").innerHTML = `Idea: <strong>${f}</strong> <button class="sec" id="genUsar">Probarla</button><br><small>Úsala solo como inspiración: cambia palabras por unas tuyas y añade números o símbolos.</small>`;
+  $("genUsar").onclick = () => { clave.value = f; clave.dispatchEvent(new Event("input")); };
 };
 
-opciones.appendChild(boton);
-
-});
-
-
-document.getElementById("resultado").textContent="";
-
-document.getElementById("siguiente").style.display="none";
-
-
-let porcentaje=
-
-(preguntaActual/TOTAL_PREGUNTAS)*100;
-
-document.getElementById("progreso").style.width=
-
-porcentaje+"%";
-
+/* ===== JUEGO 4: AHORCADO DIGITAL (edita las palabras: [PALABRA EN MAYÚSCULAS, pista]) ===== */
+const PAL_AH = [["PHISHING","Mensaje falso que pesca tus datos"],["CONTRASEÑA","La llave de tus cuentas"],["ANTIVIRUS","El guardia de tu computador"],["MALWARE","Programa dañino"],["CIFRADO","Revuelve un mensaje para que nadie lo lea"],["ACTUALIZAR","Cierra puertas que los ladrones ya conocen"],["PRIVACIDAD","Cuidar quién ve tus datos"]];
+function ahorcado() {
+  const c = $("ahoCaja"), [pal, pista] = PAL_AH[Math.floor(Math.random() * PAL_AH.length)], MAX = 6, usadas = new Set(); let fallos = 0;
+  c.innerHTML = `<p>Pista: ${pista}</p><p class="palabra" id="ahoPal" aria-live="polite"></p><p id="ahoVidas" style="margin:0"></p><div class="teclado" id="ahoTec"></div><p class="retro" id="ahoMsg" aria-live="polite"></p>`;
+  const pintar = () => { $("ahoPal").textContent = [...pal].map(l => usadas.has(l) ? l : "_").join(" "); $("ahoVidas").textContent = "Vidas: " + "💙".repeat(MAX - fallos) + "🖤".repeat(fallos); };
+  "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ".split("").forEach(l => {
+    const b = document.createElement("button"); b.className = "tecla"; b.textContent = l;
+    b.onclick = () => {
+      b.disabled = true; usadas.add(l); if (!pal.includes(l)) fallos++; pintar();
+      const gano = [...pal].every(x => usadas.has(x));
+      if (gano || fallos >= MAX) {
+        c.querySelectorAll(".tecla").forEach(x => x.disabled = true);
+        $("ahoMsg").innerHTML = (gano ? "🎉 ¡Ganaste!" : "😢 Era: <strong>" + pal + "</strong>") + ' <button id="ahoOtra">Otra palabra</button>';
+        $("ahoOtra").onclick = ahorcado; if (gano) { confeti(); logro("ahorcado"); }
+      }
+    };
+    $("ahoTec").appendChild(b);
+  });
+  pintar();
 }
+ahorcado();
 
+/* ===== JUEGO 5: CAZA EL ENLACE FALSO (f = posición del enlace falso en la lista u, empieza en 0) ===== */
+const ENL = [
+ {u:["https://www.paypal.com/inicio","https://www.paypa1.com/inicio","https://www.paypal.com/ayuda"],f:1,e:"Cambiaron la «l» por el número 1."},
+ {u:["https://accounts.google.com","https://google.com.verificar-cuenta.xyz","https://mail.google.com"],f:1,e:"El dominio real es verificar-cuenta.xyz; «google.com» solo es un disfraz al inicio."},
+ {u:["https://www.netflix.com","https://www.netflix.com/browse","https://netflix-gratis-premio.com"],f:2,e:"Nadie regala cuentas: el dominio no es el oficial."},
+ {u:["https://www.microsoft.com","https://www.micros0ft.com","https://support.microsoft.com"],f:1,e:"Cambiaron una «o» por un cero."}
+];
+(function () {
+  const c = $("enlCaja"); let k = 0, p = 0;
+  function ver() {
+    if (k >= ENL.length) {
+      c.innerHTML = `<p class="retro">Encontraste ${p} de ${ENL.length} enlaces falsos. ${p >= 3 ? "¡Ojo de lince!" : "Mira siempre letra por letra."}</p><button id="enlOtra">Jugar otra vez</button>`;
+      $("enlOtra").onclick = () => { k = 0; p = 0; ver(); }; if (p >= 3) { confeti(); logro("enlaces"); } return;
+    }
+    const r = ENL[k], op = r.u.map((u, j) => ({u, f: j === r.f})).sort(() => Math.random() - .5);
+    c.innerHTML = `<p>Ronda ${k + 1} de ${ENL.length}: ¿cuál enlace es el <strong>falso</strong>?</p><div class="opciones" id="enlOp"></div><p class="retro" id="enlMsg" aria-live="polite"></p>`;
+    op.forEach(o => {
+      const b = document.createElement("button"); b.className = "url"; b.textContent = o.u;
+      b.onclick = () => {
+        const bs = [...$("enlOp").children]; bs.forEach((x, j) => { x.disabled = true; if (op[j].f) x.classList.add("bien"); });
+        if (o.f) p++; else b.classList.add("mal");
+        $("enlMsg").innerHTML = `${o.f ? "✅ ¡Bien visto!" : "❌ Ese era real."} ${r.e} <button id="enlSig">Siguiente</button>`;
+        $("enlSig").onclick = () => { k++; ver(); }; $("enlSig").focus();
+      };
+      $("enlOp").appendChild(b);
+    });
+  }
+  ver();
+})();
 
-/* =====================================================
-   RESPONDER
-===================================================== */
-
-function responder(indice){
-
-const pregunta=preguntasEvaluacion[preguntaActual];
-
-const botones=
-
-document.querySelectorAll("#opciones button");
-
-
-botones.forEach(function(boton){
-
-boton.disabled=true;
-
-});
-
-
-if(indice===pregunta.correcta){
-
-puntuacion++;
-
-botones[indice].classList.add("correcta");
-
-document.getElementById("resultado").textContent=
-
-"✅ ¡Correcto! Has identificado correctamente la situación.";
-
-}else{
-
-botones[indice].classList.add("incorrecta");
-
-botones[pregunta.correcta].classList.add("correcta");
-
-document.getElementById("resultado").textContent=
-
-"❌ No es la opción más segura. La respuesta correcta ha sido marcada en verde.";
-
+/* ===== INSIGNIAS (se ganan jugando) Y CONSEJO RÁPIDO ===== */
+const LOGROS = {
+  habitos: ["🛡️","Escudo completo","Marca los 7 hábitos"], quiz: ["🎓","Experto del quiz","4 o más en el quiz"],
+  detective: ["🕵️","Detective","5 aciertos o más"], memoria: ["🧠","Memoria de acero","Completa la memoria"],
+  virus: ["🦠","Cazavirus","8 puntos o más"], ahorcado: ["🔤","Palabras seguras","Gana el ahorcado"], enlaces: ["🔗","Ojo de lince","3 enlaces falsos"]
+};
+const ganados = new Set();
+function pintarLogros() {
+  $("insignias").innerHTML = Object.entries(LOGROS).map(([k, v]) => `<li class="${ganados.has(k) ? "ganada" : ""}"><span class="med" aria-hidden="true">${v[0]}</span><span><strong>${v[1]}</strong><br><small>${v[2]}</small></span><span class="sr">${ganados.has(k) ? "Desbloqueada" : "Bloqueada"}</span></li>`).join("");
+  $("logrosN").textContent = ganados.size + " de " + Object.keys(LOGROS).length;
 }
-
-
-document.getElementById("puntos").textContent=
-
-"Puntos: "+puntuacion;
-
-
-if(preguntaActual<TOTAL_PREGUNTAS-1){
-
-document.getElementById("siguiente").style.display=
-
-"inline-block";
-
-}else{
-
-setTimeout(mostrarResultado,700);
-
+function logro(id) {
+  if (ganados.has(id)) return; ganados.add(id); pintarLogros();
+  if (ganados.size === Object.keys(LOGROS).length) { confeti(); $("logrosN").textContent += ". ¡Eres Guardián de Conecta Seguro!"; }
 }
-
-}
-
-
-/* =====================================================
-   SIGUIENTE
-===================================================== */
-
-function siguientePregunta(){
-
-preguntaActual++;
-
-cargarPregunta();
-
-}
-
-
-/* =====================================================
-   RESULTADO
-===================================================== */
-
-function mostrarResultado(){
-
-document.getElementById("progreso").style.width="100%";
-
-document.getElementById("pregunta").textContent="Evaluación terminada 🎉";
-
-document.getElementById("opciones").innerHTML="";
-
-document.getElementById("siguiente").style.display="none";
-
-document.getElementById("resultado").textContent="";
-
-
-let porcentaje=
-
-Math.round((puntuacion/TOTAL_PREGUNTAS)*100);
-
-
-document.getElementById("porcentaje").textContent=
-
-porcentaje+"%";
-
-
-let nivel="";
-
-let mensaje="";
-
-
-if(porcentaje<40){
-
-nivel="🔴 Nivel inicial";
-
-mensaje=
-"Has dado el primer paso. Te recomendamos explorar nuevamente los módulos sobre amenazas y consejos de seguridad antes de realizar otra evaluación.";
-
-}
-
-else if(porcentaje<80){
-
-nivel="🟠 Nivel intermedio";
-
-mensaje=
-"Tienes una buena base de conocimientos. Sigue practicando para aprender a identificar situaciones de riesgo con mayor facilidad.";
-
-}
-
-else{
-
-nivel="🟢 Nivel avanzado";
-
-mensaje=
-"¡Excelente! Demuestras un buen conocimiento de las principales amenazas y prácticas de seguridad digital.";
-
-}
-
-
-document.getElementById("nivel").textContent=nivel;
-
-document.getElementById("mensajeFinal").textContent=mensaje;
-
-document.getElementById("resultadoFinal").style.display="block";
-
-}
-
-
-/* =====================================================
-   REPETIR EVALUACIÓN
-===================================================== */
-
-function reiniciarEvaluacion(){
-
-document.getElementById("resultadoFinal").style.display="none";
-
-nuevaEvaluacion();
-
-document.getElementById("evaluacion").scrollIntoView({
-
-behavior:"smooth"
-
-});
-
-}
-
-
-/* =====================================================
-   INICIAR EVALUACIÓN
-===================================================== */
-
-nuevaEvaluacion();
-
-
+pintarLogros();
+const CONSEJOS = ["Si un mensaje te mete prisa, respira: la prisa es la herramienta favorita del estafador.","Cambia primero la contraseña de tu correo: con él se recuperan todas las demás cuentas.","Tu banco nunca te pedirá por mensaje el código que te llega al celular.","Cierra la sesión cuando uses un computador que no es tuyo.","Antes de dar clic, pasa el cursor sobre el enlace para ver a dónde te lleva.","Haz copia de tus fotos importantes: si algo pasa, no lo pierdes todo.","Una frase larga vale más que una clave corta llena de símbolos.","Si algo parece demasiado bueno para ser verdad, casi seguro es una trampa."];
+let ci = Math.floor(Math.random() * CONSEJOS.length);
+const verConsejo = () => { $("consejoTxt").textContent = CONSEJOS[ci]; ci = (ci + 1) % CONSEJOS.length; };
+$("otroConsejo").onclick = verConsejo; verConsejo();
 </script>
-
 </body>
-
 </html>
